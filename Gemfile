@@ -15,6 +15,8 @@ group :development do
   gem 'guard-spork', '~> 1.5.1'
   gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'rb-fsevent', '~> 0.9.3'
+  gem "better_errors"  
+  gem "binding_of_caller"
 end
 
 group :development, :test do
