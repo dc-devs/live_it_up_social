@@ -1,0 +1,16 @@
+default: &default
+  adapter: pg
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: live_it_up_social_development
+
+test:
+  <<: *default
+  database: live_it_up_social_test
+
+production:
+  <<: *default
+  database: live_it_up_social
