@@ -1,13 +1,42 @@
 <div class="container">
-  <br>
-   <h2><%= link_to 'Create New Activity', new_activity_path %></h2>
-  <h1>Activities</h1>
+
+<div class="activities-userProfileWrapepr">
+  <div class="activities-userProfilePhoto" >
+    <%= link_to image_tag("prof-pic.jpeg",), activities_path   %> 
+    <div class="activities-userProfileAttsWrapper">
+      <h4>"<%= current_user.motto%>"</h4>
+      <h4> My Activities </h4>
+      <% current_user.activities.each_with_index do |activity,index| %>
+        <p><%= index+1 %>. <%= activity.title %></p>
+      <% end %>
+    </div>
+  <%= link_to 'Create New Activity', new_activity_path, :class => "btn btn-primary activities-createNewActivity" %>
+  </div>
+</div>
+
+<div class="activities-listWrapper center">
+  <div class="row">
+    <h1>Activities</h1>
+  </div>
   <ul class="list-unstyled">
     <% @activities.each do |activity| %>
-      <li><%= link_to activity.title, activity %></li>
+      <%= form_for @vote do |f| %>
+         <%= f.hidden_field :user_id, :value => current_user.id %>
+         <%= f.hidden_field :activity_id, :value => activity.id %>
+         <%= f.button :class => "activities-voteUpButton" do %>
+           <i class="fa fa-arrow-circle-o-up fa-3x"></i>
+         <% end %>
+      <% end %>
+      <%= link_to activity do %>
+        <li>
+          <%= activity.title %> | Vote Count: <%= activity.votes.count %>
+        </li>
+      <% end %>
     <%end%>
   </ul>
-</div>
+</div>  
+
+  
 
 
 

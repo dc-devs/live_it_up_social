@@ -8,12 +8,17 @@ class VotesController < ApplicationController
   end
 #for POST route
   def create
-    vote = Vote.create(user_id: params["vote"][:user], activity_id: params["vote"][:activity])
+    @vote = Vote.new(vote_params)
+    if @vote.save
+      redirect_to activities_path
+    else
+      redirect_to activities_path
+    end
 
-    redirect_to votes_path
   end
 #for GET route
   def new
+    @vote = Vote.new
   end
 
   def update
