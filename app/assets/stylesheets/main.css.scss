@@ -1,3 +1,13 @@
 .main-container{
-  padding-top:60px;
+  padding-top:20px;
+}
+
+.main-countdown-header{
+  position:relative;
+  top: 220px;
+  color: black;
+  opacity: .6;
+& .main-countdown-header h1{  
+  font-size: 80px;
+ }
 }
