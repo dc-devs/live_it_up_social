@@ -29,10 +29,8 @@
   position: relative;
   top: 60px;
   left: 13px; 
-  border: 2px solid #eee;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  @include border-radius(5px);
+
   }
   & .activities-createNewActivity{
     position: relative;
@@ -51,10 +49,8 @@
   width: 61%;
   height: 100%;
   margin: 2px 0 0 20px;
-  border-radius: 5px; 
   border: 2px solid #eee;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  @include border-radius(5px);
   & h1 {
   color: #66757f;
   font-size: 22px;
