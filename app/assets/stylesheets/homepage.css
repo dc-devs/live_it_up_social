@@ -1,14 +1,30 @@
-#countdown {
-  margin-left: 20%;
+.homepage_title{
+  text-shadow: 2px 2px black;
+  font-style: bold;
+  color:white;
   margin-top: 20%;
-  color:black;
-  opacity: .6;
+  text-align: center
+}
+
+.homepage_text{
+  text-shadow: 2px 2px black;
+  text-align: center;
+  color:white;
+}
+
+#countdown {
+  text-shadow: 2px 2px black;
+  vertical-align: middle;
+  text-align: center;
+  color:white;
+  opacity: 1;
   font-size: 80px;
 }
 
 #homepage_body {
+  background-size:cover;
   background-repeat: none;
   z-index: 50;
-  background-image: url('main_background.jpg')
+
 
 }
