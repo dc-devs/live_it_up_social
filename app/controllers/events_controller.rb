@@ -8,17 +8,35 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
   def create
-    @event = Event.new(user_params)
+    @event = Event.new(event_params)
     if @event.save
-      redirect_to users_url, notice: 'New user created.'
+      redirect_to @event, notice: 'New Event created.'
     else
       render :new
     end
   end
 
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      flash[:notice] = 'Event Updated!'
+      redirect_to @event
+    else
+      render :edit
+    end
+  end
+
   private
-    def user_params
+    def event_params
       params.require(:event).permit(:date, :start_time, :duration, :activity_id)
     end
 end
