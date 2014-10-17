@@ -8,10 +8,9 @@ class VotesController < ApplicationController
   end
 #for POST route
   def create
-    p params
+    vote = Vote.create(user_id: params["vote"][:user], activity_id: params["vote"][:activity])
 
-    Vote.create(vote_params)
-    redirect_to root_path
+    redirect_to votes_path
   end
 #for GET route
   def new
@@ -26,7 +25,7 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require("vote").permit(:user_id, :activity_id)
+    params.require(:vote).permit(:user_id, :activity_id)
   end
 
 end

@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141017025225) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+
   end
 
   create_table "votes", force: true do |t|
