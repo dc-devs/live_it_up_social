@@ -13,5 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+$navbar-default-color: #fff; 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
