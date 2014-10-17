@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Picture URL</th>
+    <th>Professional Blurb</th>
+    <th>Motto</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.username %></td>
+    <td><%= user.email %></td>
+    <td><%= user.picture_url %></td>
+    <td><%= user.professional_blurb %></td>
+    <td><%= user.motto %></td>
+    <td><%= link_to 'Show', user_path(user) %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user_path(user), method: :delete, data: {confirm: 'Are you sure?' } %></td>
+  </tr>
+
+<% end %>
+</table>
+<%= link_to 'New User', new_user_path%>

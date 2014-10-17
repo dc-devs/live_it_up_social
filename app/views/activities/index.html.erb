@@ -1,0 +1,13 @@
+<div class="container">
+  <br>
+   <h2><%= link_to 'Create New Activity', new_activity_path %></h2>
+  <h1>Activities</h1>
+  <ul class="list-unstyled">
+    <% @activities.each do |activity| %>
+      <li><%= link_to activity.title, activity %></li>
+    <%end%>
+  </ul>
+</div>
+
+
+
