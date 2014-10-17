@@ -222,6 +222,7 @@ DEPENDENCIES
   guard-spork (~> 1.5.1)
   jquery-rails
   launchy (~> 2.3.0)
+  minitest
   pg
   rails (= 4.1.6)
   rails_12factor
