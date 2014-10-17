@@ -2,6 +2,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+    @vote = Vote.new
   end
 
   def show
