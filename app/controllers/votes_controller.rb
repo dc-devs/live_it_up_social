@@ -10,7 +10,7 @@ class VotesController < ApplicationController
   def create
     vote = Vote.create(user_id: params["vote"][:user], activity_id: params["vote"][:activity])
 
-    redirect_to root_path
+    redirect_to votes_path
   end
 #for GET route
   def new
