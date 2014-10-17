@@ -1,0 +1,36 @@
+<div>
+    <h1>Add an Activity</h1>
+        <%= form_for :activity, url: activities_path, method: 'post' do |f| %>
+            <h3><%= f.label :title %>:</h3>
+            <%= f.text_field :title %>
+            <br>
+            <br>
+            <h3><%= f.label :description %>:</h3>
+            <br>
+            <%= f.text_area :description %>
+            <br>
+            <h3><%= f.label :location %>:</h3>
+            <br>
+            <%= f.text_area :location %>
+            <br>
+            <h3><%= f.label :category %>:</h3>
+            <br>
+            <%= f.text_area :category %>
+            <br>
+            <h3><%= f.label :photo %>:</h3>
+            <br>
+            <%= f.text_area :photo %>
+            <br>
+            <h3><%= f.label :necessities %>:</h3>
+            <br>
+            <%= f.text_area :necessities %>
+
+
+            <br>
+            <%= f.submit 'Submit Activity' %>
+    <% end %>
+</div>
+
+
+
+
