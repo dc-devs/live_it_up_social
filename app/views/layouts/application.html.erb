@@ -9,6 +9,7 @@
     <link rel="icon" href="../../favicon.ico">
   <title><%= content_for?(:title) ? yield(:title) : "Live It Up Social" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -49,7 +50,5 @@
   <div class="container main-container">
   <%= yield %>
   </div><!-- /.container -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'countdown', 'data-turbolinks-track' => true %>
 </body>
 </html>
