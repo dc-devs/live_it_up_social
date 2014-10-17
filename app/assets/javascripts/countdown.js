@@ -1,4 +1,4 @@
-
+$( document ).ready(function() {
 // set the date we're counting down to
 var target_date = new Date(2014, 09, 24, 00, 00, 00, 00);
 
@@ -6,6 +6,7 @@ var target_date = new Date(2014, 09, 24, 00, 00, 00, 00);
 var days, hours, minutes, seconds;
 
 // get tag element
+if (document.getElementById("countdown")){
 var countdown = document.getElementById("countdown");
 
 // update the tag with id "countdown" every 1 second
@@ -30,3 +31,7 @@ setInterval(function () {
     + minutes + "m, " + seconds + "s";
 
 }, 1000);
+
+}
+
+});

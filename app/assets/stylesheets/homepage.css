@@ -1,0 +1,14 @@
+#countdown {
+  margin-left: 20%;
+  margin-top: 20%;
+  color:black;
+  opacity: .6;
+  font-size: 80px;
+}
+
+#homepage_body {
+  background-repeat: none;
+  z-index: 50;
+  background-image: url('main_background.jpg')
+
+}
