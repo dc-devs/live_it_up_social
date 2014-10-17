@@ -1,10 +1,15 @@
+.text-center{
+  text-align:center;  
+}
+
 .center{
-  text-align:center;
   margin: 0px auto;
 }
 
 .activities-userProfileWrapepr{
   border: 2px solid #eee;
+  float: left;
+  display: inline-block;
   width:300px;
   height:200px;
   background-color: #0084B4 !important;
@@ -25,3 +30,34 @@
   border-radius: 5px;
   }
 }
+
+.activities-listWrapper{
+  float: left;
+  display: inline-block;
+  width: 61%;
+  height: 100%;
+  margin: 2px 0 0 20px;
+  border-radius: 5px; 
+  border: 2px solid #eee;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  & h1 {
+  color: #66757f;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 22px;
+  float:left;
+  margin: 10px 0 10px 30px;
+  }
+  & li {
+    padding: 10px 0 10px 30px;
+    border-top: 1px solid #e1e8ed;
+  }
+ }
+
+ .activities-voteUpButton{
+  
+ }
+
+
+

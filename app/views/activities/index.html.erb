@@ -1,20 +1,33 @@
 <div class="container">
 
 <div class="activities-userProfileWrapepr">
-<div class="activities-userProfilePhoto" >
-  <%= link_to image_tag("prof-pic.jpeg",), activities_path   %> 
-</div>
+  <div class="activities-userProfilePhoto" >
+    <%= link_to image_tag("prof-pic.jpeg",), activities_path   %> 
+  </div>
+  <h2><%= link_to 'Create New Activity', new_activity_path %></h2>
 </div>
 
-  <br>
-   <h2><%= link_to 'Create New Activity', new_activity_path %></h2>
-  <h1>Activities</h1>
+<div class="activities-listWrapper center">
+  <div class="row">
+    <h1>Activities</h1>
+  </div>
   <ul class="list-unstyled">
     <% @activities.each do |activity| %>
-      <li><%= link_to activity.title, activity %></li>
+      <%= form_for :vote, url: votes_path do |f| %>
+       <%= f.hidden_field :user, :value => current_user.id %>
+       <%= f.hidden_field :activity, :value => activity %>
+       <%= f.submit "Vote", :class => "activities-voteUpButton" %>
+      <% end %>
+      <%= link_to activity do %>
+        <li>
+          <%= activity.title %>
+        </li>
+      <% end %>
     <%end%>
   </ul>
-</div>
+</div>  
+
+  
 
 
 
