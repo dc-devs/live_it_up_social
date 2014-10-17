@@ -4,13 +4,35 @@
   <div class="activities-userProfilePhoto" >
     <%= link_to image_tag("prof-pic.jpeg",), activities_path   %>
     <div class="activities-userProfileAttsWrapper">
-      <h4>"<%= current_user.motto%>"</h4>
-      <h4> My Votes </h4>
-      <% current_user.activities.each_with_index do |activity,index| %>
-        <p><%= index+1 %>. <%= activity.title %></p>
-      <% end %>
+     
+     <div class="activities-navTabsWrapper">
+       <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a href="#home" role="tab" data-toggle="tab">
+              My Activities
+            </a>
+          </li>
+          <li>
+            <a href="#profile" role="tab" data-toggle="tab">
+              Voted Activities
+            </a>
+          </li>
+        </ul>
+
+       <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="home">
+          This is my Home!
+          </div>
+          <div class="tab-pane fade" id="profile">
+          This is my Profile!
+          </div>
+        </div>
+
+      </div> <!-- end NavTabs Wrapper -->
+
     </div>
-  <%= link_to 'Create New Activity', new_activity_path, :class => "btn btn-primary activities-createNewActivity" %>
   </div>
 </div>
 

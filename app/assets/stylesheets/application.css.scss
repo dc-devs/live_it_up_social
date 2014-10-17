@@ -14,6 +14,13 @@
  *= require_self
  */
 
+$logo-span-color: #19a919;
+.navbar-brand span{
+  color: $logo-span-color;
+}
+
+$nav-tabs-border-color: transparent;
+
 $navbar-default-color: #fff;
 $navbar-default-bg: #fff;
 
