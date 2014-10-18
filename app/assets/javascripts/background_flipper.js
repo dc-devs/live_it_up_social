@@ -12,7 +12,7 @@ var background_images = [
 "http://upload.wikimedia.org/wikipedia/commons/1/1f/Ocean_Beach_in_San_Francisco_at_sunrise.jpg"]
 
   if (document.getElementById("homepage_body")){
-    $("#homepage_body").css("background-image", "url("+background_images[[Math.floor(Math.random()*background_images.length)]]+")")
+    $("#homepage_body").css("background", "url("+background_images[[Math.floor(Math.random()*background_images.length)]]+") no-repeat")
   }
 
 })
