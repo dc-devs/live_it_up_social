@@ -1,19 +1,21 @@
 .homepage_title{
-  text-shadow: 2px 2px black;
-  font-style: bold;
+  text-shadow: 2px 2px 10px black;
+  font-weight: bold;
   color:white;
   margin-top: 20%;
   text-align: center
 }
 
 .homepage_text{
-  text-shadow: 2px 2px black;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px black;
   text-align: center;
   color:white;
 }
 
 #countdown {
-  text-shadow: 2px 2px black;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px black;
   vertical-align: middle;
   text-align: center;
   color:white;
