@@ -1,10 +1,21 @@
-<h1>
+<section class='activity_view_bckgrd'>
+    <div class="activity-view-userProfilePhoto" >
+
+    </div>
+</section>
+<section class='activity-view-all-info'>
+<h2>
   <strong><%= @activity.title %></strong>
-</h1>
+</h2>
 
 <p>
   <strong>Description:</strong>
   <%= @activity.description %>
 </p>
 
-<h2><%= link_to 'See All Activities', activities_path %></h2>
+<p> <strong>Location:</strong><%= @activity.location %></p>
+<p> <strong>Description:</strong>Category<%= @activity.category %></p>
+<p> <strong>Necessities:</strong><%= @activity.necessities %></p>
+<h4><%= link_to 'See All Activities', activities_path %></h4s>
+
+</section>
