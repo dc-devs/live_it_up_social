@@ -1,8 +1,16 @@
+require 'date'
+
 class ActivitiesController < ApplicationController
 
   def index
-    @activities = Activity.all
-    @vote = Vote.new
+    if week_day # need to add < 5 IOT function, removed for development purposes
+      @activities = Activity.all
+      @vote = Vote.new
+    elsif week_day == 6
+      render 'gone_fishing'
+    else
+      render 'rsvp'
+    end
   end
 
   def show
@@ -38,6 +46,10 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @activity.destroy
     redirect_to root_path
+  end
+
+  def week_day
+    day = Date.today.wday
   end
 
   def activity_params
