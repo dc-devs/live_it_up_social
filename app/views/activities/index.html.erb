@@ -4,31 +4,61 @@
   <div class="activities-userProfilePhoto" >
     <%= link_to image_tag("prof-pic.jpeg",), activities_path   %>
     <div class="activities-userProfileAttsWrapper">
-     
-     <div class="activities-navTabsWrapper">
-       <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="active">
-            <a href="#home" role="tab" data-toggle="tab">
-              My Activities
-            </a>
-          </li>
-          <li>
-            <a href="#profile" role="tab" data-toggle="tab">
-              Voted Activities
-            </a>
-          </li>
-        </ul>
 
-       <!-- Tab panes -->
-        <div class="tab-content">
-          <div class="tab-pane fade in active" id="home">
-          This is my Home!
-          </div>
-          <div class="tab-pane fade" id="profile">
-          This is my Profile!
-          </div>
+    <div class="activities-userProfileAtts">
+
+      <div class="activities-userAtts">
+        <p>Activities</p>
+        <h4>8</h4>
+      </div>
+      <div class="activities-userAtts">
+        <p>Remaining Votes</p>
+        <h4>3</h4>
+      </div>
+      <div class="activities-userAtts">
+        <p>Reliability</p>
+        <h4>10</h4>
+      </div>
+
+    </div>
+     
+    <div class="activities-navTabsWrapper">
+     <!-- Nav tabs -->
+      <ul class="nav nav-pills activities-nav-pills" role="tablist">
+        <li class="active">
+          <a href="#home" role="tab" data-toggle="tab" class="activities-btn-tabs">
+            My Activities
+          </a>
+        </li>
+        <li>
+          <a href="#profile" role="tab" data-toggle="tab" class="activities-btn-tabs">
+            Voted Activities
+          </a>
+        </li>
+      </ul>
+     <!-- Tab panes -->
+      <div class="tab-content activities-tab-content">
+        <div class="tab-pane fade in active" id="home">
+        These are my activities! <span> 10% </span>
+        <br><hr>
+        These are my activities! <span> 10% </span>
+        <br><hr>
+        These are my activities! <span> 10% </span>
+        <br><hr>
+        These are my activities! <span> 10% </span>
         </div>
+        <div class="tab-pane fade" id="profile">
+        These are activities I voted on! <span> 10% </span>
+        <br><hr>
+        These are activities I voted on! <span> 10% </span>
+        <br><hr>
+        These are activities I voted on! <span> 10% </span>
+        <br><hr>
+        These are activities I voted on! <span> 10% </span>
+        <br><hr>
+        These are activities I voted on! <span> 10% </span>
+        </div>
+      </div>
 
       </div> <!-- end NavTabs Wrapper -->
 
@@ -36,28 +66,21 @@
   </div>
 </div>
 
-<div class="activities-listWrapper center">
-  <div class="row">
+<div class="activities-listWrapper">
+  <div class="row activities-activitiesListHeader">
     <h1>Activities</h1>
   </div>
   <ul class="list-unstyled">
     <% @activities.each do |activity| %>
-      <%= form_for @vote do |f| %>
-         <%= f.hidden_field :user_id, :value => current_user.id %>
-         <%= f.hidden_field :activity_id, :value => activity.id %>
-         <%= f.button :class => "activities-voteUpButton" do %>
-           <i class="fa fa-arrow-circle-o-up fa-3x"></i>
-         <% end %>
-      <% end %>
+      
       <%= link_to activity do %>
         <li>
+          <%= image_tag "hiking.jpg", :class=> "activities-listPhoto" %>
           <%= activity.title %> | Vote Count: <%= activity.votes.count %>
         </li>
       <% end %>
     <%end%>
   </ul>
-
-
 </div>
 
 

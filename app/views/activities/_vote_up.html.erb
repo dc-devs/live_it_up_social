@@ -1,0 +1,7 @@
+<%= form_for @vote do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :activity_id, :value => activity.id %>
+  <%= f.button :class => "activities-voteUpButton" do %>
+    <i class="fa fa-arrow-circle-o-up fa-3x"></i>
+  <% end %>
+<% end %>
