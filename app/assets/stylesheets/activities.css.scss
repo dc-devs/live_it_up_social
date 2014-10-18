@@ -8,7 +8,7 @@
 }
 
 .text-center{
-  text-align:center;  
+  text-align:center;
 }
 
 .center{
@@ -26,10 +26,19 @@
   @include border-radius(5px);
   & img{
   position: relative;
+<<<<<<< HEAD
   top: 70px;
   left: 13px;
   border: 2px solid #fff;
   @include border-radius(5px);
+=======
+  top: 60px;
+  left: 13px;
+  border: 2px solid #eee;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+>>>>>>> 58bc6bf0de7913d57328e49f67dc03b57c7d2032
   }
   & .activities-createNewActivity{
     position: relative;
@@ -72,6 +81,7 @@
   width: 61%;
   height: 100%;
   margin: 2px 0 0 20px;
+  border-radius: 5px;
   border: 2px solid #eee;
   @include border-radius(5px);
   & h1 {
