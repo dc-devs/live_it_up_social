@@ -1,9 +1,24 @@
 $( document ).ready(function() {
 // set the date we're counting down to
-var target_date = new Date(2014, 09, 24, 00, 00, 00, 00);
+
+var dayOfWeek = new Date().getDay();
+
+if (dayOfWeek > 5){
+    daysLeft = 6
+}
+else{
+    daysLeft = 5 - dayOfWeek
+}
+
+var ts = (new Date()).getTime() + 60*60*24*daysLeft*1000
+
+var today = Date.today
+var target_date = new Date(ts);
 
 // variables for time units
 var days, hours, minutes, seconds;
+
+
 
 // get tag element
 if (document.getElementById("countdown")){
@@ -27,8 +42,14 @@ if (document.getElementById("countdown")){
         seconds = parseInt(seconds_left % 60);
 
         // format countdown string + set tag value
+        if (days === 0 && hours === 0 && minutes ===0 && seconds === 0){
+            window.location = 'activities'
+        }
+        else{
         countdown.innerHTML = days + "d, " + hours + "h, "
         + minutes + "m, " + seconds + "s";
+        }
+
 
     }, 1000);
 
