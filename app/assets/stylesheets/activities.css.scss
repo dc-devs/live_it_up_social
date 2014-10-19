@@ -245,7 +245,7 @@ background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.01) 100%)
   }
  }
 
-/* Activity Search Autocomplete*/
+/* Activity Search Autocomplete */
 
 ul.ui-autocomplete{
   position: absolute;
@@ -264,4 +264,17 @@ ul.ui-autocomplete{
   display: none;
 }
 
+/* Add Activity Modal */
+
+.activities-addActivityModalDialog{
+  margin-top: 60px !important;
+}
+
+.activities-addActivityModalContent{
+  padding: 0px 0 1% 0;
+}
+
+.activities-addActivityModalSubmitBtn{
+  margin-right: 2% !important;
+}
 
