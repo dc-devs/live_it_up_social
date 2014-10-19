@@ -1,46 +1,5 @@
-<div>
-    <h1>Add an Activity</h1>
-        <%= form_for :activity, url: activities_path, method: 'post' do |f| %>
-            <h3><%= f.label :title %>:</h3>
-            <%= f.text_field :title %>
-            <br>
-            <br>
-            <h3><%= f.label :description %>:</h3>
-            <br>
-            <%= f.text_area :description %>
-            <br>
-            <h3><%= f.label :location %>:</h3>
-            <br>
-            <%= f.text_area :location %>
-            <br>
-            <h3><%= f.label :category %>:</h3>
-            <br>
-            <%= f.select(:category, options_for_select([
-                ['Biking','biking'],
-                ['Climbing','climbing'],
-                ['Drinking','drinking'],
-                ['Hiking','hiking'],
-                ['Kayaking','kayaking'],
-                ['Paddleboarding','paddleboarding'],
-                ['Sailing','sailing'],
-                ['Surfing','surfing'],
-                ['Other','other']])) %>
-            <br>
-            <h3><%= f.label :photo %>:</h3>
-            <br>
-            <%= f.text_area :photo %>
-            <br>
-            <h3><%= f.label :necessities %>:</h3>
-            <br>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.text_area :necessities %>
-
-
-            <br>
-            <%= f.submit 'Submit Activity' %>
-    <% end %>
-</div>
-
-
+<div class="form-wrapper">
+  <%= render 'activity_form' %> 
+</div> 
 
 
