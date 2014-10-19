@@ -35,6 +35,12 @@
             Voted Activities
           </a>
         </li>
+        <li>
+          <a href="#profile" class="activities-btn-tabs btn-green">
+            Add Activity
+          </a>
+        </li>
+
       </ul>
      <!-- Tab panes -->
       <div class="tab-content activities-tab-content">
@@ -76,7 +82,7 @@
       <%= link_to activity do %>
         <li>
           <%= image_tag "hiking.jpg", :class=> "activities-listPhoto" %>
-          <%= activity.title %> | Vote Count: <%= activity.votes.count %>
+          <%= activity.title %> <span><%= activity.votes.count %></span>
         </li>
       <% end %>
     <%end%>

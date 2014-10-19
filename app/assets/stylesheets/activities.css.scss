@@ -26,19 +26,14 @@
   @include border-radius(5px);
   & img{
   position: relative;
-<<<<<<< HEAD
-  top: 70px;
-  left: 13px;
   border: 2px solid #fff;
   @include border-radius(5px);
-=======
-  top: 60px;
+  top: 70px;
   left: 13px;
   border: 2px solid #eee;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
->>>>>>> 58bc6bf0de7913d57328e49f67dc03b57c7d2032
   }
   & .activities-createNewActivity{
     position: relative;
@@ -59,7 +54,7 @@
   width: 96px;
   text-align: center;
   float: left;
-  margin: 0 1px;
+  margin: 0 0;
  & p {
   color: #8c9ca9;
   font-size: 10px;
@@ -91,8 +86,16 @@
   line-height: 22px;
   margin: 10px 0 10px 30px;
   }
+  & a {
+    color: #181818;
+  }
+  & a:hover {
+    color: #181818;
+    outline:none;
+    text-decoration:none;
+  }
   & li {
-    font-size: 24px;
+    font-size: 22px;
     border-top: 1px solid #e1e8ed;
   }
  }
@@ -125,25 +128,27 @@
 
 .activities-nav-pills{
   text-align: center;
-  width: 250px;
   margin: 0 auto;
+  padding-left:2px !important;
 }
 
 .activities-btn-tabs{
-  border: 1px solid #cecece;
-  background-color: #f7f7f7;
-  background-image: -webkit-linear-gradient(#fff, #f0f0f0);
-  background-image: linear-gradient(#fff, #f0f0f0);
-  border-left: 1px solid #cecece;
-  color: #333 !important;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 500;
-  margin: 0 6px;
-  padding: 8px 15px !important;
-  height:34px !important;
+background-color: #f7f7f7;
+background-image: -webkit-linear-gradient(white, #f0f0f0);
+background-image: linear-gradient(white, #f0f0f0);
+border: 1px solid #cecece;
+color: #333 !important;
+display: inline-block;
+font-size: 12px;
+font-weight: 500;
+margin: 0px 1px;
+padding: 8px 9px !important;
+height: 34px !important;
+&:hover {
+background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.01) 100%);
+background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.01) 100%);
+ }
 }
-
 .activities-nav-pills > li.active > a, .activities-nav-pills > li.active > a:hover, .activities-nav-pills > li.active > a:focus{
   background-color: transparent !important; 
   background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 100%) ;
@@ -152,12 +157,56 @@
   text-shadow: none;
  }
 
+.btn-green{
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #5bb75b !important;
+  background-image: -moz-linear-gradient(top,#62c462,#51a351);
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(#62c462),to(#51a351));
+  background-image: -webkit-linear-gradient(top,#62c462,#51a351);
+  background-image: -o-linear-gradient(top,#62c462,#51a351);
+  background-image: linear-gradient(to bottom,#62c462,#51a351);
+  background-repeat: repeat-x;
+  border-color: #51a351 #51a351 #387038;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462',endColorstr='#ff51a351',GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-green:hover, .btn-green:active, .btn-green.active, .btn-green.disabled, .btn-green[disabled] {
+color: #fff !important;
+background-color: #51a351 !important;
+text-decoration: none !important;
+background-position: 0 -15px;
+border-color: #51a351 #51a351 #387038 !important;
+border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25) !important;
+text-decoration: none;
+background-color: #e6e6e6;
+background-position: 0 -15px;
+-webkit-transition: background-position .1s linear;
+-moz-transition: background-position .1s linear;
+-o-transition: background-position .1s linear;
+transition: background-position .1s linear;
+}
+
+.btn-green:active, .btn-green.disabled, .btn-green[disabled] {
+color: #fff;
+background-color: #51a351;
+background-color: #e6e6e6;
+background-color: #d9d9d9 \9;
+background-image: none;
+outline: 0;
+-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+-moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+}
+
  /* Activities List */
 
  .activities-listPhoto{
-    margin: 5px;
-    height:60px;
-    width: 60px;
+    margin: 7px 15px 7px 15px;
+    height:55px;
+    width: 55px;
     border-radius:50%;
     -moz-box-shadow:    inset 1px 1px 5px rgba(68,68,68,0.6);
     -webkit-box-shadow: inset 1px 1px 5px rgba(68,68,68,0.6);
