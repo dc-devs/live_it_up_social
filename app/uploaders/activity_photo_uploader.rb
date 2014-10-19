@@ -1,5 +1,4 @@
 class ActivityPhotoUploader < CarrierWave::Uploader::Base
-
   include CarrierWave::RMagick
 
   storage :fog
@@ -25,7 +24,6 @@ class ActivityPhotoUploader < CarrierWave::Uploader::Base
   version :mini_activity_list_thumb do
     process :resize_to_fill => [25, 25]
   end
-
 
   def extension_white_list
     %w(jpg jpeg gif png)

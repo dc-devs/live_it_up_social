@@ -1,5 +1,4 @@
 require 'date'
-
 class ActivitiesController < ApplicationController
 
   def index
@@ -22,8 +21,9 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(activity_params)
-    # activity.update(user_id: session[:current_user_id])
+    @activity   = Activity.new(activity_params)
+    @activities = Activity.all
+    @vote       = Vote.new
     @activity.save
     render :index
   end
@@ -59,10 +59,9 @@ class ActivitiesController < ApplicationController
 
   def search
     results = Activity.where(category: params[:query].downcase)
-
-      @activities = results
-      @vote = Vote.new
-      render :index
+    @activities = results
+    @vote = Vote.new
+    render :index
   end
 
 end

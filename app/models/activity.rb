@@ -1,6 +1,5 @@
 class Activity < ActiveRecord::Base
   mount_uploader :photo, ActivityPhotoUploader
-
   belongs_to :user
   has_many   :votes
   has_many   :users, through: :votes
