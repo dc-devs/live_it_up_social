@@ -57,4 +57,11 @@ class ActivitiesController < ApplicationController
       :category, :icon, :photo, :necessities, :user_id)
   end
 
+  def search
+    results = Activity.where(category: params[:query])
+    @activities = results
+    @vote = Vote.new
+    render :index
+  end
+
 end
