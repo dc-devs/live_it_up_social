@@ -1,8 +1,8 @@
 <div class="container">
 
-<div class="activities-userProfileWrapepr">
+<div class="activities-userProfileWrapper">
   <div class="activities-userProfilePhoto" >
-    <%= link_to image_tag("prof-pic.jpeg",), activities_path   %>
+    <%= link_to image_tag("prof-pic.jpeg", :class => "activities-userProfileImg"), activities_path   %>
     <div class="activities-userProfileAttsWrapper">
 
     <div class="activities-userProfileAtts">
@@ -36,33 +36,30 @@
           </a>
         </li>
         <li>
-          <a href="#profile" class="activities-btn-tabs btn-green">
-            Add Activity
-          </a>
+          <%= link_to "Add Activity", new_activity_path, :class=> "activities-btn-tabs btn-green" %>
         </li>
 
       </ul>
      <!-- Tab panes -->
       <div class="tab-content activities-tab-content">
         <div class="tab-pane fade in active" id="home">
-        These are my activities! <span> 10% </span>
-        <br><hr>
-        These are my activities! <span> 10% </span>
-        <br><hr>
-        These are my activities! <span> 10% </span>
-        <br><hr>
-        These are my activities! <span> 10% </span>
+          <% activities = @activities.where(user_id: current_user.id) %>
+          <ul class="list-unstyled activities-miniList">
+            <% activities.each do |activity| %>
+              <li>
+                <%= image_tag "hiking.jpg", :class=> "activities-listPhoto activities-miniListPhoto" %>
+                <%= activity.title %>
+              </li>
+            <% end %>
+          </ul>
         </div>
         <div class="tab-pane fade" id="profile">
-        These are activities I voted on! <span> 10% </span>
-        <br><hr>
-        These are activities I voted on! <span> 10% </span>
-        <br><hr>
-        These are activities I voted on! <span> 10% </span>
-        <br><hr>
-        These are activities I voted on! <span> 10% </span>
-        <br><hr>
-        These are activities I voted on! <span> 10% </span>
+        <% activities = current_user.activities %>
+            <ul class="list-unstyled activities-miniList">
+            <% activities.each do |activity| %>
+              <li><%= activity.title %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
 
