@@ -17,7 +17,7 @@ gem 'sinatra', require: false
 gem 'slim'
 gem 'twilio-ruby', '~> 3.12'
 gem 'whenever', require: false
-gem 'twilio-ruby', '~> 3.12'
+
 
 
 group :development do
