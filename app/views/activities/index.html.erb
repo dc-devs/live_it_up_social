@@ -121,8 +121,10 @@
 
       <%= link_to activity do %>
         <li>
-          <%= image_tag "hiking.jpg", :class=> "activities-listPhoto" %>
+          <%= image_tag Activity.images[activity.category], :class=> "activities-listPhoto" %>
           <%= activity.title %> <span><%= activity.votes.count %></span>
+          <%#= Activity.images %>
+          <%#= Activity.images[activity.category] %>
         </li>
       <% end %>
 
@@ -137,7 +139,6 @@
       <% end %>
 
     <%end%> <!-- End of Activity -->
-
   </ul>
 </div>
 
