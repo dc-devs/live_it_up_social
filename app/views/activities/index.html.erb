@@ -51,7 +51,7 @@
                 <%= activity.title %>
                 <div class="activities-miniBackersWrapper text-center">
                   <span><%= activity.votes.count %></span><br/>
-                  backed
+                  votes
                 </div>
               </li>
             <% end %>
@@ -86,12 +86,36 @@
 
     <form id="activities-search", action='/search'>
       <label >
-        <i class="fa fa-search"> </i>
+        <!-- <i class="fa fa-search"> </i> -->
         <input  id ='activities-search-input'type="text" name="query" class="form-control" placeholder="search activities">
       </label>
     </form>
 
   </div>
+
+  <div class="activities-queryHeader">
+    <div class="activities-queryItem">
+      <a href="#">
+        Category
+      </a>
+    </div>
+    <div class="activities-queryItem">
+      <a href="#">
+        Recently Added
+      </a>
+    </div>
+    <div class="activities-queryItem">
+      <a href="#">
+        Trending
+      </a>
+    </div>
+    <div class="activities-queryItem activities-queryVote">
+      <a href="#">
+        Votes
+      </a>
+    </div>
+  </div> <!-- END .activities-queryHeader -->
+
   <ul class="list-unstyled">
     <% @activities.each do |activity| %>
 
@@ -106,7 +130,9 @@
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :activity_id, :value => activity.id %>
         <%= f.button :class => "activities-voteUpButton" do %>
-          <i class="fa fa-arrow-circle-o-up fa-3x"></i>
+          <div class="activities-BackersWrapper text-center">
+            <span><%= activity.votes.count %></span><br/>
+          </div>
         <% end %>
       <% end %>
 
