@@ -1,10 +1,10 @@
 require 'date'
-
 class ActivitiesController < ApplicationController
 
   def index
     if week_day # need to add < 5 IOT function, removed for development purposes
       @activities = Activity.all
+      @activity = Activity.new
       @vote = Vote.new
     elsif week_day == 6
       render 'gone_fishing'
@@ -22,10 +22,11 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(activity_params)
-    # activity.update(user_id: session[:current_user_id])
+    @activity   = Activity.new(activity_params)
+    @activities = Activity.all
+    @vote       = Vote.new
     @activity.save
-    render :show
+    render :index
   end
 
   def edit

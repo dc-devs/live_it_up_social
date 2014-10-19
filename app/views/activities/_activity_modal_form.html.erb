@@ -1,0 +1,72 @@
+<%= form_for @activity do |f| %>
+  <div class="form">
+    <ul class="zero list-unstyled">
+      <li>
+        <div class="form-header">
+            Add An Activity
+        </div>
+      </li>
+      <li>
+        <p class="form-label">
+         Title
+        </p>
+      <div class="form-input">
+        <%= f.text_field :title, :placeholder => "title", :class => "form-control" %>
+      </div>
+    </li>
+    <li class="form-input-photo">
+      <p class="form-label">
+        Photo
+      </p>
+      <div class="form-input">
+        <%= f.file_field :photo, :class=>"form-input" %>
+      </div>
+    </li>
+    <li>
+      <p class="form-label form-label-dropdown">
+        Category
+      </p>
+      <div class="form-input">
+        <%= f.select :category, options_for_select([
+        ['Biking','biking'],
+        ['Climbing','climbing'],
+        ['Drinking','drinking'],
+        ['Hiking','hiking'],
+        ['Kayaking','kayaking'],
+        ['Paddleboarding','paddleboarding'],
+        ['Sailing','sailing'],
+        ['Surfing','surfing'],
+        ['Other','other']]), :class=>"form-input" %>
+      </div>
+    </li>
+    <li>
+      <p class="form-label">
+        Description
+      </p>
+      <div class="form-input">
+        <%= f.text_area :description, :placeholder => "description", :class => "form-control"  %>
+      </div>
+    </li>
+    <li>
+      <p class="form-label">
+        Location
+      </p>
+      <div class="form-input">
+        <%= f.text_field :location, :placeholder => "location", :class => "form-control" %>
+      </div>
+    </li>
+    <li>
+      <p class="form-label">
+        Necessities
+      </p>
+      <div class="form-input">
+        <%= f.text_field :necessities, :placeholder => "necessities", :class => "form-control" %>
+      </div>
+    </li>
+    <li>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit 'Submit Activity', :class => "btn-old btn-green form-submit activities-addActivityModalSubmitBtn" %>
+    </li>
+   </ul> <!-- End of ul -->
+  </div> <!-- End of Form Type -->
+<% end %>

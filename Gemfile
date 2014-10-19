@@ -19,6 +19,10 @@ gem 'twilio-ruby', '~> 3.12'
 gem 'whenever', require: false
 
 
+gem 'carrierwave'
+gem 'fog'
+# gem 'rmagick', :require => 'RMagick'
+
 
 group :development do
   gem 'guard-rspec', '~> 3.0.2'

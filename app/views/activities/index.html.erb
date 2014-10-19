@@ -36,7 +36,7 @@
           </a>
         </li>
         <li>
-          <%= link_to "Add Activity", new_activity_path, :class=> "activities-btn-tabs btn-green" %>
+          <%= link_to "Add Activity", "#", :class=> "activities-btn-tabs btn-old btn-green", 'data-toggle'=>"modal", 'data-target'=>"#addActivityModal" %>
         </li>
 
       </ul>
@@ -47,7 +47,7 @@
           <ul class="list-unstyled activities-miniList">
             <% activities.each do |activity| %>
               <li>
-                <%= image_tag "hiking.jpg", :class=> "activities-listPhoto activities-miniListPhoto" %>
+                <%= image_tag activity.photo_url(:mini_activity_list_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
                 <%= activity.title %>
                 <div class="activities-miniBackersWrapper text-center">
                   <span><%= activity.votes.count %></span><br/>
@@ -62,7 +62,7 @@
             <ul class="list-unstyled activities-miniList">
             <% activities.each do |activity| %>
               <li>
-                <%= image_tag "hiking.jpg", :class=> "activities-listPhoto activities-miniListPhoto" %>
+                <%= image_tag activity.photo_url(:mini_activity_list_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
                 <%= activity.title %>
                 <div class="activities-miniBackersWrapper text-center">
                   <span><%= activity.votes.count %></span><br/>
@@ -121,10 +121,8 @@
 
       <%= link_to activity do %>
         <li>
-          <%= image_tag Activity.images[activity.category], :class=> "activities-listPhoto" %>
-          <%= activity.title %> <span><%= activity.votes.count %></span>
-          <%#= Activity.images %>
-          <%#= Activity.images[activity.category] %>
+          <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
+          <%= activity.title %>
         </li>
       <% end %>
 
@@ -137,10 +135,23 @@
           </div>
         <% end %>
       <% end %>
-
     <%end%> <!-- End of Activity -->
   </ul>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog activities-addActivityModalDialog">
+    <div class="modal-content activities-addActivityModalContent">
+      <div class="modal-body zero">
+        <%= render 'activity_modal_form' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 
