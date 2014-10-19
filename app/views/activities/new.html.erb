@@ -23,6 +23,7 @@
             <br>
             <h3><%= f.label :necessities %>:</h3>
             <br>
+            <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.text_area :necessities %>
 
 

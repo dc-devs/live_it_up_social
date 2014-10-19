@@ -14,7 +14,14 @@
  *= require_self
  */
 
-$navbar-default-color: #fff; 
+$logo-span-color: #19a919;
+.navbar-brand span{
+  color: $logo-span-color;
+}
+
+$navbar-default-color: #fff;
+$navbar-default-bg: #fff;
+
 $container-desktop: 1200px;
 
 @import "bootstrap-sprockets";
