@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'main#index'
   resources :events, :votes, :activities, :users, :sessions
+  get '/search', to: 'activities#search'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
