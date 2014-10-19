@@ -21,7 +21,7 @@
       </div>
 
     </div>
-     
+
     <div class="activities-navTabsWrapper">
      <!-- Nav tabs -->
       <ul class="nav nav-pills activities-nav-pills" role="tablist">
@@ -71,7 +71,7 @@
 
 <div class="activities-listWrapper">
   <div class="row activities-activitiesListHeader">
-    <h1>Activities</h1>
+    <h1 id='activity-heading'>Activities</h1>
 
     <form id="activities-search", action='/search'>
       <label >Search:
@@ -82,7 +82,7 @@
   </div>
   <ul class="list-unstyled">
     <% @activities.each do |activity| %>
-      
+
       <%= link_to activity do %>
         <li>
           <%= image_tag "hiking.jpg", :class=> "activities-listPhoto" %>
