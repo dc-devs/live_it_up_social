@@ -21,7 +21,7 @@ gem 'whenever', require: false
 
 gem 'carrierwave'
 gem 'fog'
-# gem 'rmagick', :require => 'RMagick'
+gem 'rmagick', :require => 'RMagick'
 
 
 group :development do
