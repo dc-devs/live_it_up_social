@@ -56,4 +56,11 @@ class ActivitiesController < ApplicationController
     params.require(:activity).permit(:title, :description, :location, :category, :icon, :photo, :necessities)
   end
 
+  def search
+    results = Activity.where(category: params[:query])
+    @activities = results
+    @vote = Vote.new
+    render :index
+  end
+
 end

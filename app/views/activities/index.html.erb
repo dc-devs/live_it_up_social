@@ -17,6 +17,13 @@
 <div class="activities-listWrapper center">
   <div class="row">
     <h1>Activities</h1>
+
+    <form id="activities-search", action='/search'>
+      <label >Search:
+      <input  id ='activities-search-input'type="text" name="query">
+      </label>
+    </form>
+
   </div>
   <ul class="list-unstyled">
     <% @activities.each do |activity| %>
