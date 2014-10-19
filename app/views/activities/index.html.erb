@@ -49,6 +49,10 @@
               <li>
                 <%= image_tag "hiking.jpg", :class=> "activities-listPhoto activities-miniListPhoto" %>
                 <%= activity.title %>
+                <div class="activities-miniBackersWrapper text-center">
+                  <span><%= activity.votes.count %></span><br/>
+                  votes
+                </div>
               </li>
             <% end %>
           </ul>
@@ -57,7 +61,14 @@
         <% activities = current_user.activities %>
             <ul class="list-unstyled activities-miniList">
             <% activities.each do |activity| %>
-              <li><%= activity.title %></li>
+              <li>
+                <%= image_tag "hiking.jpg", :class=> "activities-listPhoto activities-miniListPhoto" %>
+                <%= activity.title %>
+                <div class="activities-miniBackersWrapper text-center">
+                  <span><%= activity.votes.count %></span><br/>
+                  backed
+                </div>
+              </li>
             <% end %>
           </ul>
         </div>
@@ -74,12 +85,37 @@
     <h1 id='activity-heading'>Activities</h1>
 
     <form id="activities-search", action='/search'>
-      <label >Search:
-      <input  id ='activities-search-input'type="text" name="query">
+      <label >
+        <!-- <i class="fa fa-search"> </i> -->
+        <input  id ='activities-search-input'type="text" name="query" class="form-control" placeholder="search activities">
       </label>
     </form>
 
   </div>
+
+  <div class="activities-queryHeader">
+    <div class="activities-queryItem">
+      <a href="#">
+        Category
+      </a>
+    </div>
+    <div class="activities-queryItem">
+      <a href="#">
+        Recently Added
+      </a>
+    </div>
+    <div class="activities-queryItem">
+      <a href="#">
+        Trending
+      </a>
+    </div>
+    <div class="activities-queryItem activities-queryVote">
+      <a href="#">
+        Votes
+      </a>
+    </div>
+  </div> <!-- END .activities-queryHeader -->
+
   <ul class="list-unstyled">
     <% @activities.each do |activity| %>
 
@@ -89,7 +125,19 @@
           <%= activity.title %> <span><%= activity.votes.count %></span>
         </li>
       <% end %>
-    <%end%>
+
+      <%= form_for @vote do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :activity_id, :value => activity.id %>
+        <%= f.button :class => "activities-voteUpButton" do %>
+          <div class="activities-BackersWrapper text-center">
+            <span><%= activity.votes.count %></span><br/>
+          </div>
+        <% end %>
+      <% end %>
+
+    <%end%> <!-- End of Activity -->
+
   </ul>
 </div>
 
