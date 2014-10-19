@@ -24,11 +24,13 @@
 }
 
 #homepage_body {
+  background-attachment: fixed;
   background-size: cover;
   background-repeat: none;
   z-index: 50;
   height: 800px;
   margin-bottom: 5%;
+  background-position: center center;
 }
 
 .homepage-margin-side {
@@ -56,6 +58,10 @@
 
 .thumbnail {
   min-height: 140px;
+}
+
+module.content {
+  padding: 40px 0;
 }
 
 
