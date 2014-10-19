@@ -47,7 +47,7 @@
           <ul class="list-unstyled activities-miniList">
             <% activities.each do |activity| %>
               <li>
-                <%= image_tag "hiking.jpg", :class=> "activities-listPhoto activities-miniListPhoto" %>
+                <%= image_tag activity.photo_url(:mini_activity_list_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
                 <%= activity.title %>
                 <div class="activities-miniBackersWrapper text-center">
                   <span><%= activity.votes.count %></span><br/>
@@ -62,7 +62,7 @@
             <ul class="list-unstyled activities-miniList">
             <% activities.each do |activity| %>
               <li>
-                <%= image_tag "hiking.jpg", :class=> "activities-listPhoto activities-miniListPhoto" %>
+                <%= image_tag activity.photo_url(:mini_activity_list_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
                 <%= activity.title %>
                 <div class="activities-miniBackersWrapper text-center">
                   <span><%= activity.votes.count %></span><br/>
@@ -121,8 +121,8 @@
 
       <%= link_to activity do %>
         <li>
-          <%= image_tag "hiking.jpg", :class=> "activities-listPhoto" %>
-          <%= activity.title %> <span><%= activity.votes.count %></span>
+          <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
+          <%= activity.title %>
         </li>
       <% end %>
 

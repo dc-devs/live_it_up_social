@@ -25,7 +25,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     # activity.update(user_id: session[:current_user_id])
     @activity.save
-    render :show
+    render :index
   end
 
   def edit

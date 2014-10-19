@@ -12,7 +12,9 @@ gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
-
+gem 'carrierwave'
+gem 'fog'
+gem 'rmagick', :require => 'RMagick'
 
 group :development do
   gem 'guard-rspec', '~> 3.0.2'
