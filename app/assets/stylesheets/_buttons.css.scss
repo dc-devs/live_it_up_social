@@ -1,8 +1,8 @@
 .btn-old {
 display: inline-block;
-padding: 4px 12px;
+padding: 7px 11px 4px 11px !important;
 margin-bottom: 0;
-font-size: 14px;
+font-size: 13px;
 line-height: 20px;
 color: #333333;
 text-align: center;
@@ -46,7 +46,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', en
 filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
-.btn-green:hover, .btn-green:active, .btn-green.active, .btn-green.disabled, .btn-green[disabled] {
+.btn-green:hover, .btn-green:active, .btn-green.active, .btn-green.disabled, .btn-green[disabled], btn-green.active {
 color: #fff !important;
 background-color: #51a351 !important;
 text-decoration: none !important;

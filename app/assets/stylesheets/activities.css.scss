@@ -15,6 +15,10 @@
   margin: 0px auto;
 }
 
+.activities-userProfileFixedWrapper{
+ position: fixed; 
+}
+
 .activities-userProfileWrapper{
   position: absolute;
   border: 1px solid #efefef;
@@ -132,7 +136,7 @@
 .activities-nav-pills{
   text-align: center;
   margin: 0 auto;
-  padding-left:4px !important;
+  padding-left: 3px !important;
 }
 
 .activities-btn-tabs{
