@@ -4,7 +4,9 @@ class ActivitiesController < ApplicationController
   def index
     if week_day # need to add < 5 IOT function, removed for development purposes
       @activities = Activity.all
-      @activity = Activity.new
+      @activity   = Activity.new
+      @vote       = Vote.new
+
       @sorted_by_vote = Activity.sort_acrtivities(@activities)
       @vote = Vote.new
     elsif week_day == 6
@@ -26,6 +28,7 @@ class ActivitiesController < ApplicationController
     @activity   = Activity.new(activity_params)
     @activities = Activity.all
     @vote       = Vote.new
+    @sorted_by_vote = Activity.sort_acrtivities(@activities)
     @activity.save
     render :index
   end
@@ -36,9 +39,10 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
+    
 
     if @activity.update(activity_params)
-      redirect_to @activity
+      redirect_to activities_path
     else
       render edit_activity_path
     end
