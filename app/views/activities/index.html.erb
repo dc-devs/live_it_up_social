@@ -3,18 +3,18 @@
 <div class="activities-userProfileFixedWrapper">
 <div class="activities-userProfileWrapper">
   <div class="activities-userProfilePhoto" >
-    <%= link_to image_tag("prof-pic.jpeg", :class => "activities-userProfileImg"), activities_path   %>
+    <%= link_to image_tag(current_user.photo_url(:profile_settings_thumb).to_s, :class => "activities-userProfileImg"), activities_path %>
     <div class="activities-userProfileAttsWrapper">
 
     <div class="activities-userProfileAtts">
 
       <div class="activities-userAtts">
         <p>Activities</p>
-        <h4>8</h4>
+        <h4><%= current_user.activities.count %></h4>
       </div>
       <div class="activities-userAtts">
         <p>Remaining Votes</p>
-        <h4>3</h4>
+        <h4><%= current_user.remaining_votes%></h4>
       </div>
       <div class="activities-userAtts">
         <p>Reliability</p>
@@ -172,7 +172,8 @@
         <% end %>
       <% end %>
     <%end%> <!-- End of Activity -->
-  </ul>     </div>
+  </ul>     
+</div>
 </div>
 
   <div class="activities-queryHeader">
@@ -194,7 +195,10 @@
   </div> <!-- END .activities-queryHeader -->
 
 
-</div>
+        
+        
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
