@@ -13,9 +13,9 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to activities_path
     else
-      render 'new'
+      render '_new'
     end
   end
 
