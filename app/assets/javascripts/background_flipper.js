@@ -23,9 +23,29 @@ $( document ).ready(function(){
   };
 
 })();
+$(document).scroll(function () {
+    var y = $(this).scrollTop();
+    if (y > 300) {
+        $('.navbar').fadeIn();
+    } else {
+        $('.navbar').fadeOut();
+    }
+  });
 
 });
 
 
 
+// (function($) {
+//     $(document).ready(function(){
 
+//         $(window).scroll(function(){
+//             if ($(this).scrollTop() > 150) {
+//                 $('.navbar').fadeIn(1500);
+//             } else {
+//                 $('.navbar').fadeOut(1500);
+//             }
+//         });
+
+//     });
+// })(jQuery);
