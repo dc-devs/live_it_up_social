@@ -61,6 +61,7 @@ class ActivitiesController < ApplicationController
   def search
     results = Activity.where(category: params[:query].downcase)
     @activities = results
+    @activity = Activity.new
     @vote = Vote.new
     render :index
   end
