@@ -13,9 +13,9 @@ class ActivityPhotoUploader < CarrierWave::Uploader::Base
     end
   end  
 
-  # def default_url
-  #   ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  # end
+  def default_url
+     ActionController::Base.helpers.asset_path("fallback/rock-climbing.png")
+  end
 
   version :activity_list_thumb do
     process :resize_to_fill => [55, 55]
