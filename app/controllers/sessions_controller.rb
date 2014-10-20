@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    p params[:session][:email]
     @user_email = params[:session][:email]
     @user = User.find_by(:email => @user_email)
     if @user && @user.authenticate(params[:session][:password])
@@ -18,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to root_url
   end
 end
