@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
     if week_day # need to add < 5 IOT function, removed for development purposes
       @activities = Activity.all
       @activity = Activity.new
+      @sorted_by_vote = Activity.sort_acrtivities(@activities)
       @vote = Vote.new
     elsif week_day == 6
       render 'gone_fishing'

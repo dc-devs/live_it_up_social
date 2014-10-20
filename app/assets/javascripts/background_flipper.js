@@ -17,9 +17,6 @@ $( document ).ready(function(){
 
   };
 
-
-
-
 (function(){
 
   var parallax = document.querySelectorAll(".parallax"),
@@ -38,22 +35,5 @@ $( document ).ready(function(){
 
 })();
 
+}); //End Doc Ready
 
-
-}); // END DOC READY 
-
-
-
-// (function($) {
-//     $(document).ready(function(){
-
-//         $(window).scroll(function(){
-//             if ($(this).scrollTop() > 150) {
-//                 $('.navbar').fadeIn(1500);
-//             } else {
-//                 $('.navbar').fadeOut(1500);
-//             }
-//         });
-
-//     });
-// })(jQuery);
