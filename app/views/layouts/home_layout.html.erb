@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-    <%= favicon_link_tag 'favicon.ico' %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +49,9 @@
 <section id="homepage_body">
   <div class="container main-container">
     <div id="main_background">
-      <h3 class="homepage_title"><%= @time_greeting %><%= current_user.first_name %> </h3>
+
+      <div id="countdown"></div>
+      <h3 class="homepage_title">Hold your horses party animal</h3>
       <h3 class="homepage_text">Are you ready for the weekend?</h3>
     </div>
   <%= yield %>
