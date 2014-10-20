@@ -1,4 +1,7 @@
 $( document ).ready(function(){
+  $(function() {
+    $('#navbar').hide();
+});
 
   var background_images = ["cable_car.jpg", "pier.jpg", "main_background.jpg", "fort_mason.jpg","ocean_beach.jpg"]
 
@@ -23,29 +26,15 @@ $( document ).ready(function(){
   };
 
 })();
+
 $(document).scroll(function () {
     var y = $(this).scrollTop();
-    if (y > 300) {
-        $('.navbar').fadeIn();
+    if (y > 200) {
+        $('#navbar').fadeIn();
     } else {
-        $('.navbar').fadeOut();
+        $('#navbar').fadeOut();
     }
   });
 
 });
 
-
-
-// (function($) {
-//     $(document).ready(function(){
-
-//         $(window).scroll(function(){
-//             if ($(this).scrollTop() > 150) {
-//                 $('.navbar').fadeIn(1500);
-//             } else {
-//                 $('.navbar').fadeOut(1500);
-//             }
-//         });
-
-//     });
-// })(jQuery);
