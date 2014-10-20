@@ -12,9 +12,17 @@ gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+gem 'twilio-ruby', '~> 3.12'
+gem 'whenever', require: false
+
+
 gem 'carrierwave'
 gem 'fog'
 gem 'rmagick', :require => 'RMagick'
+
 
 group :development do
   gem 'guard-rspec', '~> 3.0.2'
@@ -43,4 +51,3 @@ group :production do
   gem 'rails_12factor'
   gem 'unicorn'
 end
-

@@ -3,6 +3,7 @@ class Activity < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
   has_many   :votes
+  has_many   :events
   has_many   :users, through: :votes
   validates  :title, presence: true
   validates  :description, presence: true
