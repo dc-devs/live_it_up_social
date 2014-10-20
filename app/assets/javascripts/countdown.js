@@ -21,6 +21,7 @@ var target_date = new Date(ts);
 
 var days, hours, minutes, seconds;
 
+// You're using jQuery, why not use it? $("#countdown")?
 if (document.getElementById("countdown")){
     var countdown = document.getElementById("countdown");
 

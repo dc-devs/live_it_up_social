@@ -1,3 +1,4 @@
+// Consolidate all your document.ready calls in one place.
 $( document ).ready(function(){
 
   var background_images = ["cable_car.jpg", "pier.jpg", "main_background.jpg", "fort_mason.jpg","ocean_beach.jpg"]

@@ -4,4 +4,8 @@ class MainController < ApplicationController
     render layout: 'home_layout'
   end
 
+  def razzle
+    require 'texter'
+    render text: Texter.razzle
+  end
 end

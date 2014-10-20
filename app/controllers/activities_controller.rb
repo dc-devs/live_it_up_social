@@ -1,5 +1,6 @@
 require 'date'
 class ActivitiesController < ApplicationController
+  NUMBER_REPRESENTING_SATURDAY = 6
 
   def index
     if week_day # need to add < 5 IOT function, removed for development purposes
@@ -7,9 +8,10 @@ class ActivitiesController < ApplicationController
       @activity   = Activity.new
       @vote       = Vote.new
 
+      # spelling
       @sorted_by_vote = Activity.sort_acrtivities(@activities)
       @vote = Vote.new
-    elsif week_day == 6
+    elsif saturday?
       render 'gone_fishing'
     else
       render 'rsvp'
@@ -54,15 +56,6 @@ class ActivitiesController < ApplicationController
     redirect_to root_path
   end
 
-  def week_day
-    day = Date.today.wday
-  end
-
-  def activity_params
-    params.require(:activity).permit(:title, :description, :location,
-      :category, :icon, :photo, :necessities, :user_id)
-  end
-
   def search
     results = Activity.where(category: params[:query].downcase)
     @activities = results
@@ -70,5 +63,20 @@ class ActivitiesController < ApplicationController
     @vote = Vote.new
     render :index
   end
+
+  private
+
+    def week_day
+      day = Date.today.wday
+    end
+
+    def saturday?
+      week_day == NUMBER_REPRESENTING_SATURDAY
+    end
+
+    def activity_params
+      params.require(:activity).permit(:title, :description, :location,
+        :category, :icon, :photo, :necessities, :user_id)
+    end
 
 end

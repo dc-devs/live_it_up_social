@@ -10,6 +10,8 @@ class Activity < ActiveRecord::Base
   validates  :location, presence: true
   validates  :category, presence: true
 
+  # This is one scary method, you should really have a test for this in your
+  # model tests.
   def self.sort_acrtivities( activities )
     list = []
     activities.each do |act|
@@ -20,6 +22,9 @@ class Activity < ActiveRecord::Base
     swapped = true
     while swapped do
       swapped = false
+      # OMG.  i am so fucking scared right now.  You should totally have a test
+      # for this.  Some crazy Russian hacker wrote this.  Are you going to
+      # heartbleed my POODLE and steal my SSL Certs?  Please no!
       0.upto(list.size-2) do |i|
         if list[i] < list[i+1]
           list[i], list[i+1] = list[i+1], list[i] # swap values

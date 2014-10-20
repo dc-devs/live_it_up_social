@@ -18,6 +18,7 @@ RSpec.describe UsersController, :type => :controller do
     end
 
     it "loads all of the users into @users" do
+      # Also, factory and let()
       user1 = User.create(
         first_name: "Alex",
         last_name: "Bob",

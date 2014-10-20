@@ -1,12 +1,34 @@
+# this thing scares me.
 class AuthenticationsController < ApplicationController
     layout :nil
 
+    # So much trailing whitespace....
+    #
+    # Also consider EXTRACT CLASS refactoring (see Notes.md)
+    #
+    # AuthenticationProcessor.new(params).authenticate!
+    #
     def create
       # Omniauth Hash
+      #
+      # What if it fails and this is empty?  You're assuming it will work.
+      # processor = AuthenticationProcessor.new(request).authenticate!
+      # if processor.has_authentication?
+      #   redirect current_user
+      # elsif processor.no_auth_and_signed_in?
+      #   stuf...
+      #   redirect current_user
+      # elsif processor.doesnt_exist_and_not_logged_in?
+      #    stuff...
+      #  end
+      #
       omniauth = request.env["omniauth.auth"]
       # Does Authentication already Exist? 
       authentication = Authentication.find_by_provider_and_uid(omniauth[:provider], omniauth[:uid])
       # Does user with FB email exist? 
+      #  What if this field is empty?
+      #  What if :info is empty, Nil error if info is not a {} with the :email
+      #  key....
       user = User.find_by_email(omniauth[:info][:email])
 
        
@@ -48,6 +70,7 @@ class AuthenticationsController < ApplicationController
     end #CREATE
 end
 
+# Clean up ugly WS below.
 
 
 

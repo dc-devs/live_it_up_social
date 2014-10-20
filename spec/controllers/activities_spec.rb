@@ -18,6 +18,10 @@ RSpec.describe ActivitiesController, :type => :controller do
     end
 
     it "loads all of the activities into @activities" do
+      # FactoryGirl would be good here as well as
+      # the RSpec idiom is
+      #
+      # let (:activity1) { FactoryGirl.create(:activity) }
       activity1 = Activity.create(
         title: "Bike to Marin",
         description: "Bike from SF to Marin roundtrip.",
