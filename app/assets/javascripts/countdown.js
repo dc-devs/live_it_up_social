@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-// set the date we're counting down to
 
 var dayOfWeek = new Date().getDay();
 
@@ -10,28 +9,33 @@ else{
     daysLeft = 5 - dayOfWeek
 }
 
-var ts = (new Date()).getTime() + 60*60*24*daysLeft*1000
+var midnight = new Date();
+midnight.setHours( 24 );
+midnight.setMinutes( 0 );
+midnight.setSeconds( 0 );
+midnight.setMilliseconds( 0 );
+( midnight.getTime() - new Date().getTime() ) / 1000 / 60;
+
+var timeTillFriday = new Date();
+timeTillFriday.setSeconds(0);
+timeTillFriday.setMinutes(0);
+timeTillFriday.setHours(0);
+
+ts = timeTillFriday.getTime() + (60*60*24*daysLeft*1000)
 
 var today = Date.today
 var target_date = new Date(ts);
 
-// variables for time units
 var days, hours, minutes, seconds;
 
-
-
-// get tag element
 if (document.getElementById("countdown")){
     var countdown = document.getElementById("countdown");
 
-    // update the tag with id "countdown" every 1 second
     setInterval(function () {
 
-        // find the amount of "seconds" between now and target
         var current_date = new Date().getTime();
         var seconds_left = (target_date - current_date) / 1000;
 
-        // do some time calculations
         days = parseInt(seconds_left / 86400);
         seconds_left = seconds_left % 86400;
 
@@ -41,7 +45,6 @@ if (document.getElementById("countdown")){
         minutes = parseInt(seconds_left / 60);
         seconds = parseInt(seconds_left % 60);
 
-        // format countdown string + set tag value
         if (days === 0 && hours === 0 && minutes ===0 && seconds === 0){
             window.location = 'activities'
         }
