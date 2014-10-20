@@ -17,7 +17,7 @@ gem 'sinatra', require: false
 gem 'slim'
 gem 'twilio-ruby', '~> 3.12'
 gem 'whenever', require: false
-
+gem 'faker'
 
 gem 'carrierwave'
 gem 'fog'
@@ -40,7 +40,6 @@ end
 
 group :test do
   gem 'shoulda'
-  gem "faker", "~> 1.1.2"
   gem "capybara", "~> 2.1.0"
   gem "database_cleaner", "~> 1.0.1"
   gem "launchy", "~> 2.3.0"

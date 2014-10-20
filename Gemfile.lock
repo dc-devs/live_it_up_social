@@ -307,7 +307,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner (~> 1.0.1)
   factory_girl_rails (~> 4.2.1)
-  faker (~> 1.1.2)
+  faker
   fog
   font-awesome-rails
   guard-rspec (~> 3.0.2)
