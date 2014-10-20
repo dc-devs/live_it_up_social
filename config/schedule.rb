@@ -9,7 +9,13 @@
 #   runner "Texter.sendText"
 # end
 
-every 1.minute do
+# every :friday, :at => ''
+
+every :friday, :at => '12am' do
+  runner "Texter.setEvent", environment: "development"
+end
+
+every :friday, :at => '10am' do
   runner "Texter.sendText", environment: "development"
 end
 # set :output, "/path/to/my/cron_log.log"
