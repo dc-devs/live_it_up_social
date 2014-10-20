@@ -123,7 +123,7 @@
 .activities-tab-content{
   border-top:1px solid #e7e7e7;
   margin-top: 15px;
-  padding: 15px;
+  padding: 2px 15px;
 }
 
 .activities-btn-tabs-wrapper{
@@ -201,12 +201,11 @@ background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.01) 100%)
 
  .activities-miniBackersWrapper{
   width: 50px;
-  position: absolute;
   font-size: 10px;
   line-height: 11px;
   font-weight: 500;
   color: #19a919;
-  margin: -26px 0 0 208px;
+  margin: -25px 0 6px 208px;
  }
 
 
@@ -280,5 +279,16 @@ ul.ui-autocomplete{
 
 .activities-addActivityModalSubmitBtn{
   margin-right: 2% !important;
+}
+
+/* Scroll Bar */
+
+#scroll-myActivities, #scroll-myVotes{
+  height: 310px;
+  overflow: hidden;
+}
+
+.ps-scrollbar-y-rail{
+ top:105px !important; 
 }
 
