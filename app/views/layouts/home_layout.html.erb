@@ -36,13 +36,12 @@
         <ul class="nav navbar-nav pull-right">
           <li class="active"><a href="#">Home</a></li>
           <li><%= link_to :Activities, activities_path %></li>
-          <% unless current_user.nil? %>
-          <li><a href="#">Hey <%= current_user.first_name %>!!</a></li>
-          <% else %>
-          <li><%= link_to "Log In", new_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_path %></li>
-
-          <% end %>
+            <% unless current_user.nil? %>
+              <li><a href="#">Hey, <%= current_user.first_name %>!!</a></li>
+            <% else %>
+              <li><%= link_to "Log In", '#', 'data-toggle'=>"modal", 'data-target'=>"#loginModal" %></li>
+              <li><%= link_to "Sign Up", new_user_path %></li>
+            <% end %>
         </ul>
       </div><!--/.nav-collapse -->
     </nav>
@@ -102,6 +101,17 @@
   </div>
 
   </article>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog sessions-loginModalDialog">
+    <div class="modal-content sessions-loginModalContent">
+      <div class="modal-body zero">
+        <%= render 'sessions/new' %>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
