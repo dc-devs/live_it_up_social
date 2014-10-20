@@ -38,9 +38,10 @@
           <li><%= link_to :Activities, activities_path %></li>
             <% unless current_user.nil? %>
               <li><a href="#">Hey, <%= current_user.first_name %>!!</a></li>
+                         <li><%= link_to 'Log out', session_path(current_user), method: :delete%></li>
             <% else %>
               <li><%= link_to "Log In", '#', 'data-toggle'=>"modal", 'data-target'=>"#loginModal" %></li>
-              <li><%= link_to "Sign Up", new_user_path %></li>
+              <li><%= link_to "Sign Up", '#', 'data-toggle' => "modal",  'data-target'=>'#signupModal' %></li>
             <% end %>
         </ul>
       </div><!--/.nav-collapse -->
@@ -103,7 +104,7 @@
   </article>
 
   <!-- Login Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal fade custom-login-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog sessions-loginModalDialog">
     <div class="modal-content sessions-loginModalContent">
       <div class="modal-body zero">
@@ -113,5 +114,15 @@
   </div>
 </div>
 
+<!-- Sign Up Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog users-signupModalDialog">
+    <div class="modal-content users-signupModalContent">
+      <div class="modal-body zero">
+        <%= render 'users/new' %>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

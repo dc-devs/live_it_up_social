@@ -28,7 +28,7 @@
   background-size: cover;
   background-repeat: none;
   z-index: 50;
-  height: 800px;
+  height: 900px;
   margin-bottom: 5%;
   background-position: center center;
 }
@@ -71,6 +71,11 @@ module.content {
 .sessions-loginModalContent {
   padding: 0px 0 1% 0;
 }
+
+.{
+  width: 30%;
+}
+
 
 
 

@@ -11,8 +11,9 @@ $( document ).ready(function() {
       data: $(this).serialize()
 
     }).done(function(data){
-      console.log(data);
-      vote_button.html('<button class="activities-voteUpButton" name="button" type="submit"><div class="activities-BackersWrapper text-center"><span id="vote_value">'+data+'</span><br></div></button>')
+      $(vote_button[0].button).remove()
+      //debugger
+      vote_button.append('<button class="activities-voteUpButton" name="button" type="submit"><div class="activities-BackersWrapper text-center"><span id="vote_value">'+data+'</span><br></div></button>')
 
     }).fail(function(error){
       console.log("error" + error)
