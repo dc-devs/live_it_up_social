@@ -6,18 +6,20 @@ class VotesController < ApplicationController
 
   def show
   end
-#for POST route
+
   def create
     @vote = Vote.new(vote_params)
     @vote.save
     @activities = Activity.all
+    
+    current_user.remaining_votes -= 1
+    current_user.save!
 
     activity = Activity.find(@vote.activity_id)
     @votes = activity.votes.count
     render json: @votes
-
   end
-#for GET route
+
   def new
     @vote = Vote.new
   end

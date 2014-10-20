@@ -10,11 +10,11 @@
 
       <div class="activities-userAtts">
         <p>Activities</p>
-        <h4>8</h4>
+        <h4><%= current_user.activities.count %></h4>
       </div>
       <div class="activities-userAtts">
         <p>Remaining Votes</p>
-        <h4>3</h4>
+        <h4><%= current_user.remaining_votes%></h4>
       </div>
       <div class="activities-userAtts">
         <p>Reliability</p>
@@ -139,15 +139,29 @@
         </li>
       <% end %>
 
-      <%= form_for @vote do |f| %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :activity_id, :value => activity.id %>
-        <%= f.button :class => "activities-voteUpButton" do %>
-          <div class="activities-BackersWrapper text-center">
-            <span><%= activity.votes.count %></span><br/>
-          </div>
+        
+        <% if current_user.remaining_votes <= 0 %> 
+          
+          <%= button_tag :class => "activities-voteUpButton" do %>
+            <div class="activities-BackersWrapper text-center">
+              <span><%= activity.votes.count %></span><br/>
+            </div>
+          <% end %>
+
+        <% else %>
+
+          <%= form_for @vote do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :activity_id, :value => activity.id %>
+            <%= f.button :class => "activities-voteUpButton" do %>
+              <div class="activities-BackersWrapper text-center">
+                <span><%= activity.votes.count %></span><br/>
+              </div>
+            <% end %>
+          <% end %> <!-- End of Form -->
+
         <% end %>
-      <% end %>
+
     <%end%> <!-- End of Activity -->
   </ul>
 </div>

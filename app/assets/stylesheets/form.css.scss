@@ -51,6 +51,20 @@
   float: left;
   margin-bottom:15px;
  }
+ & .form-input-half-first{
+  position: relative;
+  top: 10px;
+  width: 28%;
+  float: left;
+  margin: 0 10px 15px 0;
+ }
+ & .form-input-half-second{
+  position: relative;
+  top: 10px;
+  width: 29%;
+  float: left;
+  margin-bottom:15px;
+ }
  & .form-input-photo{
   height:90px;
  }
