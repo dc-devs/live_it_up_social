@@ -1,26 +1,34 @@
 .homepage_title{
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 2px 2px 10px black;
   font-weight: bold;
   color:white;
-  margin-top: 20%;
-  text-align: center
+  text-align: center;
+  font-size: 50px;
+  opacity: .8;
 }
 
 .homepage_text{
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-shadow: 2px 2px 10px black;
   text-align: center;
   color:white;
+  font-size: 30px;
+  opacity: .8;
 }
 
 #countdown {
+ margin-top: 18%;
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 2px 2px 10px black;
   text-align: center;
   line-height: 1;
   padding: 0;
-  margin: 0;
   color: #fff;
+  opacity: .8;
   letter-spacing: -5px;
-  font-size: 180px;
+  font-size: 140px;
 }
 
 #homepage_body {
