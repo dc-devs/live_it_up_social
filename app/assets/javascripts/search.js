@@ -16,4 +16,9 @@ $(function() {
       source: availableTags
     });
   });
+
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  $('#myTab a[href="#vote"]').tab('show')
 });
