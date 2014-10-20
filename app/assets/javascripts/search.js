@@ -16,12 +16,4 @@ $(function() {
       source: availableTags
     });
   });
-
-
-
-
-
-
-
-
 });

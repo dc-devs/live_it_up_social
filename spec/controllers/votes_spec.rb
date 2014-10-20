@@ -13,7 +13,9 @@ describe VotesController do
     end
 
     it "assigns a new Vote to @vote" do
-      post :create, vote: {'user_id' => 1, 'activity_id' => 1}
+      Activity.create(id: 2, title: "biking", description: "biking", location: "SF", category: "biking")
+      post :create, vote: {'user_id' => 1, 'activity_id' => 2}
+      p Vote.count
       expect(Vote.count).to eq(1)
     end
   end
