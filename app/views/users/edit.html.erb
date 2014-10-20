@@ -17,14 +17,14 @@
       <div class="form-input-half-second">
         <%= f.text_field :last_name, :class=> "form-control" %>
       </div>
-    <li>
+    </li>
+    <li class="form-input-photo">
       <p class="form-label">
-        Picture URL
+        Photo
       </p>
       <div class="form-input">
-        <%= f.text_field :picture_url, :class=> "form-control" %>
+        <%= f.file_field :photo, :class=>"form-input" %>
       </div>
-    </li>
     </li>
     <li>
       <p class="form-label">
