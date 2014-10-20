@@ -9,13 +9,6 @@ else{
     daysLeft = 5 - dayOfWeek
 }
 
-var midnight = new Date();
-midnight.setHours( 24 );
-midnight.setMinutes( 0 );
-midnight.setSeconds( 0 );
-midnight.setMilliseconds( 0 );
-( midnight.getTime() - new Date().getTime() ) / 1000 / 60;
-
 var timeTillFriday = new Date();
 timeTillFriday.setSeconds(0);
 timeTillFriday.setMinutes(0);
@@ -37,20 +30,28 @@ if (document.getElementById("countdown")){
         var seconds_left = (target_date - current_date) / 1000;
 
         days = parseInt(seconds_left / 86400);
+        days = "0" + days
         seconds_left = seconds_left % 86400;
 
         hours = parseInt(seconds_left / 3600);
+        if (hours.toString().length === 1)
+        { hours = "0" + hours }
         seconds_left = seconds_left % 3600;
 
         minutes = parseInt(seconds_left / 60);
+        if (minutes.toString().length === 1)
+        { minutes = "0" + minutes }
+
         seconds = parseInt(seconds_left % 60);
+        if (seconds.toString().length === 1)
+        { seconds = "0" + seconds }
 
         if (days === 0 && hours === 0 && minutes ===0 && seconds === 0){
             window.location = 'activities'
         }
         else{
-        countdown.innerHTML = days + "d, " + hours + "h, "
-        + minutes + "m, " + seconds + "s";
+        countdown.innerHTML = days + ":" + hours + ":"
+        + minutes + ":" + seconds;
         }
 
 

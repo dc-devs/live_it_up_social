@@ -22,7 +22,7 @@
      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -50,9 +50,10 @@
 <section id="homepage_body">
   <div class="container main-container">
     <div id="main_background">
-      <h3 class="homepage_title">Hold your horses party animal</h3>
+
       <div id="countdown"></div>
-      <h3 class="homepage_text">Till the next adventure</h3>
+      <h3 class="homepage_title">Hold your horses party animal</h3>
+      <h3 class="homepage_text">Are you ready for the weekend?</h3>
     </div>
   <%= yield %>
   </div><!-- /.container -->
