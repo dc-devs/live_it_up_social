@@ -9,11 +9,12 @@ class VotesController < ApplicationController
 #for POST route
   def create
     @vote = Vote.new(vote_params)
-    if @vote.save
-      redirect_to activities_path
-    else
-      redirect_to activities_path
-    end
+    @vote.save
+    @activities = Activity.all
+
+    activity = Activity.find(@vote.activity_id)
+    @votes = activity.votes.count
+    render json: @votes
 
   end
 #for GET route
