@@ -64,6 +64,15 @@ module.content {
   padding: 40px 0;
 }
 
+.sessions-loginModalDialog {
+  margin-top: 60px !important;
+}
+
+.sessions-loginModalContent {
+  padding: 0px 0 1% 0;
+}
+
+
 
 
 
