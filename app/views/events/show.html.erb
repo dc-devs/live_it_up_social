@@ -16,8 +16,8 @@
         <h4>3</h4>
       </div>
       <div class="activities-userAtts">
-        <p>Reliability</p>
-        <h4>10</h4>
+        <p>User Rating</p>
+        <h4>110%</h4>      
       </div>
 
     </div>
@@ -26,37 +26,71 @@
      <!-- Nav tabs -->
       <ul class="nav nav-pills activities-nav-pills" role="tablist">
         <li class="active">
-          <a href="#home" role="tab" data-toggle="tab" class="activities-btn-tabs btn-old btn-green">
+          <a href="#accepted" role="tab" data-toggle="tab" class="activities-btn-tabs events-btn-tabs">
             Attending
           </a>
         </li>
         <li>
-          <a href="#profile" role="tab" data-toggle="tab" class="activities-btn-tabs">
+          <a href="#invited" role="tab" data-toggle="tab" class="activities-btn-tabs events-btn-tabs">
             Invited
           </a>
         </li>
         <li>
-          <a href="#profile" role="tab" data-toggle="tab" class="activities-btn-tabs">
-            Declined
-          </a>
+          <%= link_to "Accept Invite", {
+           controller: "trips", 
+           action:     "create", 
+           event_id:   @event.id
+          }, method: :post,
+         :class => "btn-old btn-green events-btn-tabs-accept" 
+          %>
         </li>
 
       </ul>
      <!-- Tab panes -->
       <div class="tab-content activities-tab-content">
-        <div class="tab-pane fade in active" id="home">
+
+        <div class="tab-pane fade in active" id="accepted">
           <ul class="list-unstyled activities-miniList">
-            <li>
-            </li>
+            <div id="scroll-eventAccepted" class="wrapper">
+              <div> <!-- ScrollBar -->
+                <% @event.users.each do |user| %>
+                <li>
+                  <%= image_tag user.photo_url(:logged_in_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
+                  <%= user.first_name %><%= user.last_name %>
+                  <div class="activities-miniBackersWrapper text-center">
+                    <span><%= user.activities.count %></span><br/>
+                    votes
+                  </div>
+                </li>
+              <% end %>
+            </div><!-- ScrollBar -->
+           </div> <!-- ScrollBar -->
           </ul>
         </div>
-        <div class="tab-pane fade" id="profile">
-         <ul class="list-unstyled activities-miniList">
-           <li>   
-           </li>
-         </ul>
+
+        <div class="tab-pane fade" id="invited">
+        <% activities = current_user.activities %>
+            <ul class="list-unstyled activities-miniList">
+             <div id="scroll-eventInvited" class="wrapper">
+               <div> <!-- ScrollBar -->
+                <% @users.each do |user| %>
+                    <li>
+                      <%= image_tag user.photo_url(:logged_in_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
+                      <%= user.first_name %><%= user.last_name %>
+                      <div class="activities-miniBackersWrapper text-center">
+                        <span><%= user.activities.count %></span><br/>
+                        votes
+                      </div>
+                    </li>
+                <% end %>
+              </div><!-- end scroll-myVotes -->
+            </div><!-- end scroll-myVotes -->
+          </ul>
         </div>
-      </div><!-- end activities-tab-content -->
+      </div><!-- End Tab Panes -->
+
+      </div> <!-- end NavTabs Wrapper -->
+
 
       </div> <!-- end NavTabs Wrapper -->
 

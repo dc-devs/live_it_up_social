@@ -65,3 +65,20 @@
  }
 }
 
+/* Scroll Bar */
+
+#scroll-eventDeclines, #scroll-eventInvited, #scroll-eventAccepted{
+  height: 310px;
+  overflow: hidden;
+}
+
+/* Buttons */
+
+.events-btn-tabs{
+  padding: 8px 18px !important;
+  margin: 0px 3px !important;
+}
+
+.events-btn-tabs-accept{
+  margin: 0px 3px !important;
+}

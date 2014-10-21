@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :activities, through: :votes
   has_many :authentications
+  has_many :trips
+  has_many :events, through: :trips
 end
