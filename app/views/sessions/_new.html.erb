@@ -1,6 +1,14 @@
 
 <div class='loginModalWidth'>
   <%= form_for :session, url: sessions_path, html: {class: "form"} do |f| %>
+      <!-- FB LOGIN -->
+
+      <%= link_to "/auth/facebook", id: "sign_in", type: "button", :class => "btn-facebook-style"  do %>
+        <em class="facebook-icon"></em><span>Sign up with Facebook</span>
+      <% end %> 
+
+      <!-- FB LOGIN -->
+
       <ul class="zero list-unstyled">
         <li>
           <div class="form-header">

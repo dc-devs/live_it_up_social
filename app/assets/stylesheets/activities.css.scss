@@ -257,12 +257,13 @@ ul.ui-autocomplete{
   padding: 0;
   border: solid 2px #eee;
   cursor: default;
-  li{
+ & li{
     background-color: #FFF;
     margin: 0;
     padding: 0;
   }
 }
+
 .ui-helper-hidden-accessible {
   display: none;
 }

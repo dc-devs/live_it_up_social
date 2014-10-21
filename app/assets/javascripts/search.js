@@ -16,4 +16,13 @@ $(function() {
       source: availableTags
     });
   });
+
+  // $(function() {
+  //   $( "#tabs" ).tabs();
+  // });
+//   $('#myTab a').click(function (e) {
+//   e.preventDefault()
+//   $(this).tab('show')
+// })
+//   $('#myTab a:last').tab('show')
 });

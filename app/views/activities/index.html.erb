@@ -3,18 +3,18 @@
 <div class="activities-userProfileFixedWrapper">
 <div class="activities-userProfileWrapper">
   <div class="activities-userProfilePhoto" >
-    <%= link_to image_tag("prof-pic.jpeg", :class => "activities-userProfileImg"), activities_path   %>
+    <%= link_to image_tag(current_user.photo_url(:profile_settings_thumb).to_s, :class => "activities-userProfileImg"), activities_path %>
     <div class="activities-userProfileAttsWrapper">
 
     <div class="activities-userProfileAtts">
 
       <div class="activities-userAtts">
         <p>Activities</p>
-        <h4>8</h4>
+        <h4><%= current_user.activities.count %></h4>
       </div>
       <div class="activities-userAtts">
         <p>Remaining Votes</p>
-        <h4>3</h4>
+        <h4><%= current_user.remaining_votes%></h4>
       </div>
       <div class="activities-userAtts">
         <p>Reliability</p>
@@ -63,7 +63,7 @@
            </div> <!-- ScrollBar -->
           </ul>
         </div>
-        
+
         <div class="tab-pane fade" id="profile">
         <% activities = current_user.activities %>
             <ul class="list-unstyled activities-miniList">
@@ -105,13 +105,78 @@
     </form>
 
   </div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs activities-queryHeader" role="tablist">
+    <li ><a href="#recently" role="tab" data-toggle="tab">Recently Added</a></li>
+    <li><a href="#trending" role="tab" data-toggle="tab">Trending</a></li>
+    <li class="active"><a href="#votes" role="tab" data-toggle="tab">Votes</a></li>
+  </ul>
 
-  <div class="activities-queryHeader">
-    <div class="activities-queryItem">
-      <a href="#">
-        Category
-      </a>
-    </div>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="recently">
+    <ul class="list-unstyled">
+  <% @recent_activities.order(created_at: :desc).each do |activity| %>
+       <%= link_to activity do %>
+        <li>
+          <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
+          <%= activity.title %>
+        </li>
+      <% end %>
+      <%= form_for @vote do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :activity_id, :value => activity.id %>
+        <%= f.button :class => "activities-voteUpButton" do %>
+          <div class="activities-BackersWrapper text-center">
+            <span><%= activity.votes.count %></span><br/>
+          </div>
+        <% end %>
+      <% end %>
+    <%end%> <!-- End of Activity -->
+  </ul>
+  </div>
+  <div class="tab-pane" id="trending">     <ul class="list-unstyled">
+       <% @trending_activities.each do |activity| %>
+       <%= link_to activity do %>
+        <li>
+          <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
+          <%= activity.title %>
+        </li>
+      <% end %>
+      <%= form_for @vote do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :activity_id, :value => activity.id %>
+        <%= f.button :class => "activities-voteUpButton" do %>
+          <div class="activities-BackersWrapper text-center">
+            <span><%= activity.votes.count %></span><br/>
+          </div>
+        <% end %>
+      <% end %>
+    <%end%> <!-- End of Activity -->
+  </ul> </div>
+  <div class="tab-pane" id="votes">       <ul class="list-unstyled">
+       <% @sorted_by_vote.each do |activity| %>
+       <%= link_to activity do %>
+        <li>
+          <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
+          <%= activity.title %>
+        </li>
+      <% end %>
+      <%= form_for @vote do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :activity_id, :value => activity.id %>
+        <%= f.button :class => "activities-voteUpButton" do %>
+          <div class="activities-BackersWrapper text-center">
+            <span><%= activity.votes.count %></span><br/>
+          </div>
+        <% end %>
+      <% end %>
+    <%end%> <!-- End of Activity -->
+  </ul>     
+</div>
+</div>
+
+<!--   <div class="activities-queryHeader">
     <div class="activities-queryItem">
       <a href="#">
         Recently Added
@@ -127,30 +192,7 @@
         Votes
       </a>
     </div>
-  </div> <!-- END .activities-queryHeader -->
-
-  <ul class="list-unstyled">
-    <% @activities.each do |activity| %>
-
-      <%= link_to activity do %>
-        <li>
-          <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
-          <%= activity.title %>
-        </li>
-      <% end %>
-
-      <%= form_for @vote do |f| %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :activity_id, :value => activity.id %>
-        <%= f.button :class => "activities-voteUpButton" do %>
-          <div class="activities-BackersWrapper text-center">
-            <span><%= activity.votes.count %></span><br/>
-          </div>
-        <% end %>
-      <% end %>
-    <%end%> <!-- End of Activity -->
-  </ul>
-</div>
+  </div> .activities-queryHeader -->
 
 <!-- Modal -->
 <div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
@@ -162,7 +204,6 @@
     </div>
   </div>
 </div>
-
 
 
 
