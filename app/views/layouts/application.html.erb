@@ -59,7 +59,12 @@
                 </button>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation">
-                      <%= link_to 'Log out', session_path(current_user), method: :delete%>
+                      
+                        <%= link_to 'Profile', user_path(current_user) %>
+                    </li>
+                    <li role="presentation">
+                        <%= link_to 'Log out', session_path(current_user), method: :delete%>
+                      
                     </li>
                   </ul>
                 </div>
