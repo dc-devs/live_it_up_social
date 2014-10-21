@@ -21,7 +21,7 @@ class UserPhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :profile_settings_thumb do
-    process :resize_to_fill => [75, 75]
+    process :resize_to_fill => [77, 77]
   end
 
   def extension_white_list
