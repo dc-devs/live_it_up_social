@@ -106,9 +106,22 @@
   <div class="modal fade custom-login-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog sessions-loginModalDialog">
     <div class="modal-content sessions-loginModalContent">
-      <div class="modal-body zero">
-        <%= render 'sessions/new' %>
+      <div class="modal-header sessions-loginModalHeader">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+         ×
+        </button>
+        <p class="modal-title text-center">
+         Sign into Live It Up Social
+        </p>
       </div>
+          <div class="modal-body zero">
+            <%= render 'sessions/new' %>
+          </div>
+       
+        <div class="sessions-loginModalFooter">
+         <p>Don't have an account? <a href="/sign_up" class="need-sign-up">Sign up</a></p>
+        </div>
+
     </div>
   </div>
 </div>
