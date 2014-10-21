@@ -124,11 +124,11 @@
     </li>
   </ul>
 
-<!-- Tab panes -->
+<!--  Recent Activities tab -->
 <div class="tab-content">
   <div class="tab-pane fade in active" id="recently">
     <ul class="list-unstyled">
-  <% @recent_activities.order(created_at: :desc).each do |activity| %>
+  <% @activities.order(created_at: :desc).each do |activity| %>
        <%= link_to activity do %>
         <li>
           <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
@@ -144,7 +144,7 @@
           </div>
         <% end %>
       <% end %>
-    <%end%> <!-- End of Activity -->
+    <%end%>
   </ul>
   </div>
   <div class="tab-pane fade" id="trending">     <ul class="list-unstyled">
@@ -183,9 +183,9 @@
           </div>
         <% end %>
       <% end %>
-    <%end%> <!-- End of Activity -->
+    <%end%>
   </ul>
-</div>
+</div><!-- End of Voting Activities -->
 </div>
 
 <!-- Modal -->

@@ -8,4 +8,6 @@ describe Vote do
   it "belongs to an activity" do
     should belong_to(:activity)
   end
+
+
 end
