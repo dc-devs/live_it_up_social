@@ -1,19 +1,14 @@
 require 'date'
 class ActivitiesController < ApplicationController
+  before_filter :corresponding_day_page, :only => :index
+  before_filter :sort_by_vote_count, :only => [:index, :create, :search]
 
   def index
-    if week_day # need to add < 5 IOT function, removed for development purposes
-      @activities = Activity.all
-      @activity   = Activity.new
-      @vote       = Vote.new
+    @activities = Activity.all
+    @activity   = Activity.new
+    @vote       = Vote.new
 
-      @sorted_by_vote = Activity.sort_acrtivities(@activities)
-      @vote = Vote.new
-    elsif week_day == 6
-      render 'gone_fishing'
-    else
-      render 'rsvp'
-    end
+    render :index
   end
 
   def show
@@ -28,9 +23,12 @@ class ActivitiesController < ApplicationController
     @activity   = Activity.new(activity_params)
     @activities = Activity.all
     @vote       = Vote.new
-    @sorted_by_vote = Activity.sort_acrtivities(@activities)
-    @activity.save
-    render :index
+    
+      if @activity.save
+        redirect_to activities_path
+      else
+        render :index
+      end
   end
 
   def edit
@@ -40,35 +38,51 @@ class ActivitiesController < ApplicationController
   def update
     @activity = Activity.find(params[:id])
     
-
     if @activity.update(activity_params)
       redirect_to activities_path
     else
-      render edit_activity_path
+      render :edit
     end
   end
 
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
-    redirect_to root_path
-  end
-
-  def week_day
-    day = Date.today.wday
-  end
-
-  def activity_params
-    params.require(:activity).permit(:title, :description, :location,
-      :category, :icon, :photo, :necessities, :user_id)
+    redirect_to activities_path
   end
 
   def search
-    results = Activity.where(category: params[:query].downcase)
-    @activities = results
-    @activity = Activity.new
-    @vote = Vote.new
+    @activities = Activity.where(category: params[:query].downcase)
+    @activity   = Activity.new
+    @vote       = Vote.new
+    
     render :index
   end
+
+  private
+
+    def saturday?
+      Date.today.wday == 6
+    end
+    
+    def friday?
+      Date.today.wday == 5
+    end
+    
+    def activity_params
+      params.require(:activity).permit(:title, :description, :location,
+        :category, :icon, :photo, :necessities, :user_id)
+    end
+
+    def corresponding_day_page
+      @event = Event.last
+      redirect_to @event if friday?
+      redirect_to @event if saturday?
+    end
+    
+    def sort_by_vote_count
+      activities = Activity.all
+      @sorted_by_vote = Activity.sort_acrtivities(activities)
+    end
 
 end
