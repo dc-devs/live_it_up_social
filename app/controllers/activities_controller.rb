@@ -6,6 +6,10 @@ class ActivitiesController < ApplicationController
       @activities = Activity.all
       @activity = Activity.new
       @sorted_by_vote = Activity.sort_acrtivities(@activities)
+      today = (Time.now.midnight..Time.now)
+      @trending_activities = Activity.where(created_at: today)
+      @recent_activities = Activity.where(created_at: today)
+      @trending_activities = Activity.sort_acrtivities(@trending_activities)
       @vote = Vote.new
     elsif week_day == 6
       render 'gone_fishing'
@@ -24,9 +28,14 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity   = Activity.new(activity_params)
-    @activities = Activity.all
-    @vote       = Vote.new
     @activity.save
+    @activities = Activity.all
+    @sorted_by_vote = Activity.sort_acrtivities(@activities)
+    today = (Time.now.midnight..Time.now)
+    @trending_activities = Activity.where(created_at: today)
+    @recent_activities = Activity.where(created_at: today)
+    @trending_activities = Activity.sort_acrtivities(@trending_activities)
+    @vote       = Vote.new
     render :index
   end
 
@@ -60,8 +69,17 @@ class ActivitiesController < ApplicationController
   end
 
   def search
-    results = Activity.where(category: params[:query].downcase)
-    @activities = results
+    @activities = Activity.where(category: params[:query].downcase)
+    if @activities.count > 1
+      @sorted_by_vote = Activity.sort_acrtivities(@activities)
+    else
+      @sorted_by_vote = @activities
+    end
+    today = (Time.now.midnight..Time.now)
+    @trending_activities = @activities.where(created_at: today)
+    @trending_activities = Activity.sort_acrtivities(@trending_activities)
+
+    @recent_activities = @activities.where(created_at: today)
     @activity = Activity.new
     @vote = Vote.new
     render :index
