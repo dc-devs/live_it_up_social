@@ -1,41 +1,32 @@
-
-<div class='loginModalWidth'>
-  <%= form_for :session, url: sessions_path, html: {class: "form"} do |f| %>
-      <!-- FB LOGIN -->
-
+  <%= form_for :session, url: sessions_path, html: {:class => "form sign-in-form"} do |f| %>
+  <ul class="zero list-unstyled">
+    
+    <div class="text-center">
       <%= link_to "/auth/facebook", id: "sign_in", type: "button", :class => "btn-facebook-style"  do %>
         <em class="facebook-icon"></em><span>Sign up with Facebook</span>
       <% end %> 
-
-      <!-- FB LOGIN -->
-
-      <ul class="zero list-unstyled">
-        <li>
-          <div class="form-header">
-            Log In
-          </div>
-        </li>
-        <li>
-          <p class="form-label">
-            Email
-          </p>
-          <div class="form-input">
-            <%= f.email_field :email, class: "form-control" %>
-          </div>
-        </li>
-        <li>
-          <p class="form-label">
-            Password
-          </p>
-          <div class="form-input">
-            <%= f.password_field :password, class: "form-control" %>
-          </div>
-        </li>
-        <li>
-          <%= f.submit "Login", :class => "btn-old btn-green form-submit" %>
-        </li>
-      </ul>
+    </div><!-- FB LOGIN -->
+      <div class="division">
+        <hr class="left">
+          <span>or</span>
+        <hr class="right">
+      </div>
+    <li>
+      <div class="form-input">
+        <%= f.email_field :email, placeholder: :email, :class => "form-control" %>
+      </div>
+    </li>
+    <li>
+      <div class="form-input">
+        <%= f.password_field :password, placeholder: :password, :class => "form-control" %>
+      </div>
+    </li>
+    <div class="row text-center">
+      <li class="text-center">
+        <%= f.submit "Login", :class => "btn-old btn-old-default form-submit" %>
+      </li>
+    </div>
+  </ul>
 <% end %>
-</div>
 
 

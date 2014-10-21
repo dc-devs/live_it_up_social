@@ -1,0 +1,11 @@
+<div class="form-sign-in-wrapper">
+  <div class="form-top-header">
+    <h3> Log Into Your Account </h3>
+   </div>
+   <%= render '/sessions/new' %>  
+</div>
+<div class="row">
+</div>
+<div class="row text-center">
+ <p class="already">Don't have an account? <%= link_to "Sign up", new_user_path,:class=>"need-sign-up" %></p>
+</div>

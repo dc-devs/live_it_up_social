@@ -12,6 +12,49 @@
   overflow: hidden;
 }
 
+.form-sign-in-wrapper{
+  background-color: white;
+  border: 1px solid #CCC;
+  border-radius: 4px 4px 4px 4px;
+  margin: 50px auto;
+  padding: 0 17px;
+  width: 35%;
+  margin-bottom: 25px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.form-top-header{
+ width: 100%;
+ padding: 25px 0px;
+ margin-bottom: 25px;
+ border-bottom: 1px solid #d6d6d6;
+ border-radius: 5px 5px 0px 0px;
+ text-align: center;
+ color: $brand-color;
+ & h3{
+ font-weight: 200;
+ }
+}
+
+.sign-in-form {
+  padding: 0 17px;
+& li {
+  overflow: hidden;
+  border-bottom: 0px solid #fff !important;
+  padding: 0 !important;
+ }
+& .form-input{
+  width: 100% !important;
+ }
+& .form-submit{
+  position: relative;
+  margin: 15px auto !important;
+  min-width: 90px;
+  float:none !important;
+ } 
+}
+
 .form{
   width:100%;
   overflow: hidden;
@@ -75,3 +118,34 @@
  }
 }
 
+.division {
+  display: inline-block;
+  margin: 17px 0 23px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  & hr {
+  border-width: 1px;
+  color:#181818;
+  border-top: 1px solid #999 !important;
+  border-bottom: 1px solid #eee !important;
+  margin: 0;
+  position: absolute;
+  width: 40%;
+  }
+  & .left {
+    top: 13px;
+  }
+  & .right {
+    bottom: 5px;
+    right: 0;
+    float: right;
+ }
+}
+
+.need-sign-up{
+  color:#314a7b;
+  &:hover{
+  color:#314a7b;
+  }
+}

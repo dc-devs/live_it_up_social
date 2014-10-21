@@ -1,0 +1,5 @@
+<%= form_tag sessions_path do %>
+<%= text_field_tag :email, params[:email], placeholder: 'email', :required => true, :class => "form-control form-input" %>
+<%= password_field_tag :password, nil, placeholder: 'password', :required => true, :class => "form-control form-input" %>
+ <%= button_tag "Sign in", :class => "btn btn-dev-bootcamp button-sign-in fluid" %>
+<% end %>
