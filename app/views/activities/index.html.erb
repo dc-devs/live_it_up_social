@@ -107,9 +107,9 @@
   </div>
   <!-- Activities tabs -->
   <ul class="nav nav-tabs activities-queryHeader" role="tablist">
-    <li ><a href="#recently" role="tab" data-toggle="tab">Recently Added</a></li>
+    <li class="active"><a href="#recently" role="tab" data-toggle="tab">Recently Added</a></li>
     <li><a href="#trending" role="tab" data-toggle="tab">Trending</a></li>
-    <li class="active"><a href="#votes" role="tab" data-toggle="tab">Votes</a></li>
+    <li ><a href="#votes" role="tab" data-toggle="tab">Votes</a></li>
   </ul>
 
 <!--  Recent Activities tab -->
@@ -159,7 +159,8 @@
 <!--  End of Trendring Activities tab -->
 
   <!--  Voting Activities tab -->
-  <div class="tab-pane" id="votes">       <ul class="list-unstyled">
+  <div class="tab-pane" id="votes">
+    <ul class="list-unstyled">
        <% @sorted_by_vote.each do |activity| %>
        <%= link_to activity do %>
         <li>
