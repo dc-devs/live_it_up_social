@@ -97,15 +97,13 @@
 <div class="activities-listWrapper"> 
 
   <div class="row activities-activitiesListHeader">
-    <h1 id='activity-heading'>Activities</h1>
+    <h1 id='activity-heading'>
+      Activities
+    </h1>
 
-    <form id="activities-search", action='/search'>
-      <label >
-        <!-- <i class="fa fa-search"> </i> -->
-        <input  id ='activities-search-input'type="text" name="query" class="form-control" placeholder="search activities">
-      </label>
-    </form>
-
+    <div class="activities-countdownWrapper">
+      <div id="countdown"></div>
+    </div>
   </div>
   <!-- Nav tabs --> 
   <ul class="nav nav-tabs activities-queryHeader" role="tablist">
@@ -121,7 +119,7 @@
     </li>
     <li class="active activities-queryVote">
       <a clas="activities-queryItem"  href="#votes" role="tab" data-toggle="tab">
-        Votes
+        Leaderboard
       </a>
     </li>
   </ul>
@@ -169,12 +167,12 @@
     <%end%> <!-- End of Activity -->
   </ul> </div>
   <div class="tab-pane fade" id="votes">       <ul class="list-unstyled">
-       <% @sorted_by_vote.each do |activity| %>
-       <%= link_to activity do %>
-        <li>
-          <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
-          <%= activity.title %>
-        </li>
+     <% @sorted_by_vote.each do |activity| %>
+     <%= link_to activity do %>
+      <li>
+        <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
+        <%= activity.title %>
+      </li>
       <% end %>
       <%= form_for @vote do |f| %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
