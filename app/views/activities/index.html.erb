@@ -106,7 +106,7 @@
 
   </div>
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
+  <ul class="nav nav-tabs" role="tablist" id='myTab'>
     <li ><a href="#recently" role="tab" data-toggle="tab">Recently Added</a></li>
     <li><a href="#trending" role="tab" data-toggle="tab">Trending</a></li>
     <li class="active"><a href="#votes" role="tab" data-toggle="tab">Votes</a></li>
@@ -116,7 +116,7 @@
 <div class="tab-content">
   <div class="tab-pane active" id="recently">
     <ul class="list-unstyled">
-       <% @activities.order(created_at: :desc).each do |activity| %>
+       <% @recent_activities.order(created_at: :desc).each do |activity| %>
        <%= link_to activity do %>
         <li>
           <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
@@ -136,7 +136,7 @@
   </ul>
   </div>
   <div class="tab-pane" id="trending">     <ul class="list-unstyled">
-       <% @activities.order(created_at: :asc).each do |activity| %>
+       <% @trending_activities.each do |activity| %>
        <%= link_to activity do %>
         <li>
           <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
@@ -176,7 +176,7 @@
 </div>
 </div>
 
-  <div class="activities-queryHeader">
+<!--   <div class="activities-queryHeader">
     <div class="activities-queryItem">
       <a href="#">
         Recently Added
@@ -192,7 +192,7 @@
         Votes
       </a>
     </div>
-  </div> <!-- END .activities-queryHeader -->
+  </div> .activities-queryHeader -->
 
 
         
