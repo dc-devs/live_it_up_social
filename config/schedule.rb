@@ -18,6 +18,10 @@ end
 every :friday, :at => '10am' do
   runner "Texter.sendText", environment: "development"
 end
+
+every :monday, :at => '9:05pm' do
+  runner "PresentationMailer.event_recap.deliver"
+end
 # set :output, "/path/to/my/cron_log.log"
 #
 # every 2.hours do

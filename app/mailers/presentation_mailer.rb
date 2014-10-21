@@ -1,8 +1,11 @@
 class PresentationMailer < ActionMailer::Base
-  default from: 'melroman26@gmail.com'
+  default to: Proc.new { User.pluck(:email) },
+          from: 'melroman26@gmail.com'
 
   def event_recap(user)
     @user = user
-    mail to: @user.email, subject: "Saturday's Recap"
+    mail(subject: "Weekend Recap")
+
   end
 end
+
