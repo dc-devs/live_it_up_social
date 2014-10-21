@@ -105,18 +105,18 @@
     </form>
 
   </div>
-  <!-- Nav tabs -->
+  <!-- Activities tabs -->
   <ul class="nav nav-tabs activities-queryHeader" role="tablist">
     <li ><a href="#recently" role="tab" data-toggle="tab">Recently Added</a></li>
     <li><a href="#trending" role="tab" data-toggle="tab">Trending</a></li>
     <li class="active"><a href="#votes" role="tab" data-toggle="tab">Votes</a></li>
   </ul>
 
-<!-- Tab panes -->
+<!--  Recent Activities tab -->
 <div class="tab-content">
   <div class="tab-pane active" id="recently">
     <ul class="list-unstyled">
-  <% @recent_activities.order(created_at: :desc).each do |activity| %>
+  <% @activities.order(created_at: :desc).each do |activity| %>
        <%= link_to activity do %>
         <li>
           <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
@@ -132,9 +132,11 @@
           </div>
         <% end %>
       <% end %>
-    <%end%> <!-- End of Activity -->
+    <%end%>
   </ul>
-  </div>
+  </div><!-- End of Recent Activities Tab-->
+
+  <!--  Trendring Activities tab -->
   <div class="tab-pane" id="trending">     <ul class="list-unstyled">
        <% @trending_activities.each do |activity| %>
        <%= link_to activity do %>
@@ -154,6 +156,9 @@
       <% end %>
     <%end%> <!-- End of Activity -->
   </ul> </div>
+<!--  End of Trendring Activities tab -->
+
+  <!--  Voting Activities tab -->
   <div class="tab-pane" id="votes">       <ul class="list-unstyled">
        <% @sorted_by_vote.each do |activity| %>
        <%= link_to activity do %>
@@ -171,9 +176,9 @@
           </div>
         <% end %>
       <% end %>
-    <%end%> <!-- End of Activity -->
+    <%end%>
   </ul>
-</div>
+</div><!-- End of Voting Activities -->
 </div>
 
 <!--   <div class="activities-queryHeader">
