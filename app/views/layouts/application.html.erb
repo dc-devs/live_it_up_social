@@ -34,23 +34,36 @@
         <a class="navbar-brand" href="#">Live It Up <span>Social</span></a>
       </div>
       <div class="collapse navbar-collapse">
+
+        <!-- <form id="activities-search", action='/search'>
+          <label >
+            <!-- <i class="fa fa-search"> </i>
+            <input  id ='activities-search-input'type="text" name="query" class="form-control" placeholder="search activities">
+          </label>
+        </form> -->
+
         <ul class="nav navbar-nav pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><%= link_to :Activities, activities_path %></li>
-          <% unless current_user.nil? %>
-          <li>
-           <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-            <%= current_user.first_name %> 
-            <%= link_to image_tag(current_user.photo_url(:logged_in_thumb).to_s, :class => "activities-userProfileImg"), activities_path %>             
-            </button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation">
-                  <%= link_to 'Log out', session_path(current_user), method: :delete%>
-                </li>
-              </ul>
-            </div>
+          <li >
+            <a href="#">
+              Past Events
+            </a>
           </li>
+          <li>
+            <%= link_to "Votable Activities", activities_path %></li>
+            <% unless current_user.nil? %>
+              <li>
+               <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                <%= current_user.first_name %> 
+                <%= link_to image_tag(current_user.photo_url(:logged_in_thumb).to_s, :class => "activities-userProfileImg"), activities_path %>             
+                </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation">
+                      <%= link_to 'Log out', session_path(current_user), method: :delete%>
+                    </li>
+                  </ul>
+                </div>
+              </li>
           <% else %>
           <li><%= link_to "Log In", new_session_path %></li>
           <li><%= link_to "Sign Up", new_user_path %></li>
