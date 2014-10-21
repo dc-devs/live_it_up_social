@@ -11,13 +11,15 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
     @vote.save
     @activities = Activity.all
-    
-    current_user.remaining_votes -= 1
-    current_user.save!
 
-    activity = Activity.find(@vote.activity_id)
-    @votes = activity.votes.count
-    render json: @votes
+    if current_user.remaining_votes > 0
+      current_user.remaining_votes -= 1
+      current_user.save!
+
+      activity = Activity.find(@vote.activity_id)
+      @votes = activity.votes.count
+      render json: @votes
+    end
   end
 
   def new
