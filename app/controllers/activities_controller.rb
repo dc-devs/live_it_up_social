@@ -30,7 +30,7 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
     @activity   = Activity.new(activity_params)
     @activity.save
-    
+
     @sorted_by_vote = Activity.sort_acrtivities(@activities)
     today = (Time.now.midnight..Time.now)
     @trending_activities = Activity.where(created_at: today)
@@ -46,7 +46,7 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-    
+
     if @activity.update(activity_params)
       redirect_to activities_path
     else
@@ -70,7 +70,7 @@ class ActivitiesController < ApplicationController
      today = (Time.now.midnight..Time.now)
      @trending_activities = @activities.where(created_at: today)
      @trending_activities = Activity.sort_acrtivities(@trending_activities)
- 
+
      @recent_activities = @activities.where(created_at: today)
      @activity = Activity.new
      @vote = Vote.new
@@ -82,11 +82,11 @@ class ActivitiesController < ApplicationController
     def saturday?
       Date.today.wday == 6
     end
-    
+
     def friday?
       Date.today.wday == 5
     end
-    
+
     def activity_params
       params.require(:activity).permit(:title, :description, :location,
         :category, :icon, :photo, :necessities, :user_id)
@@ -97,7 +97,7 @@ class ActivitiesController < ApplicationController
       redirect_to @event if friday?
       redirect_to @event if saturday?
     end
-    
+
     def sort_by_vote_count
       activities = Activity.all
       @sorted_by_vote = Activity.sort_acrtivities(activities)
