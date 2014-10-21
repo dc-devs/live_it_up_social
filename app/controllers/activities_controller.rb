@@ -62,14 +62,15 @@ class ActivitiesController < ApplicationController
 
   def search
    @activities = Activity.where(category: params[:query].downcase)
+     today = (Time.now.midnight..Time.now)
      if @activities.count > 1
        @sorted_by_vote = Activity.sort_acrtivities(@activities)
+       @trending_activities = @activities.where(created_at: today)
+       @trending_activities = Activity.sort_acrtivities(@trending_activities)
      else
        @sorted_by_vote = @activities
+       @trending_activities = @activities
      end
-     today = (Time.now.midnight..Time.now)
-     @trending_activities = @activities.where(created_at: today)
-     @trending_activities = Activity.sort_acrtivities(@trending_activities)
 
      @recent_activities = @activities.where(created_at: today)
      @activity = Activity.new
