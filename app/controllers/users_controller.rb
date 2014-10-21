@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      UserMailer.welcome_email(@user).deliver
       redirect_to activities_path
     else
       render :new
@@ -48,6 +49,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :username, :email, :photo, :motto, :password, :professional_blurb)
     end
-
 
 end
