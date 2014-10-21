@@ -106,7 +106,7 @@
 
   </div>
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist" id='myTab'>
+  <ul class="nav nav-tabs activities-queryHeader" role="tablist">
     <li ><a href="#recently" role="tab" data-toggle="tab">Recently Added</a></li>
     <li><a href="#trending" role="tab" data-toggle="tab">Trending</a></li>
     <li class="active"><a href="#votes" role="tab" data-toggle="tab">Votes</a></li>
@@ -116,7 +116,7 @@
 <div class="tab-content">
   <div class="tab-pane active" id="recently">
     <ul class="list-unstyled">
-       <% @recent_activities.order(created_at: :desc).each do |activity| %>
+  <% @recent_activities.order(created_at: :desc).each do |activity| %>
        <%= link_to activity do %>
         <li>
           <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
@@ -193,12 +193,6 @@
       </a>
     </div>
   </div> .activities-queryHeader -->
-
-
-        
-        
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >

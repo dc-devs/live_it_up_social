@@ -14,16 +14,15 @@
  *= require_self
  */
 
-$brand-color: #19a919;
 .navbar-brand span{
-  color: $brand-color;
+  color: #19a919;
 }
 
 $navbar-default-color: #fff;
 $navbar-default-bg: #fff;
-$navbar-default-link-active-color: $brand-color;
-$navbar-default-link-active-bg: transparent;
-$navbar-default-link-hover-color: $brand-color;
+$navbar-default-link-active-color: #19a919;
+$navbar-default-link-active-bg: #fff;
+$navbar-default-link-hover-color: #19a919;
 
 $container-desktop: 1200px;
 

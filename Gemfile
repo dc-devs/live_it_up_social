@@ -18,6 +18,9 @@ gem 'slim'
 gem 'twilio-ruby', '~> 3.12'
 gem 'whenever', require: false
 gem 'faker'
+gem "oauth2"
+gem "omniauth"
+gem 'omniauth-facebook'
 
 gem 'carrierwave'
 gem 'fog'

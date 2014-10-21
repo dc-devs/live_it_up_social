@@ -1,21 +1,20 @@
 require 'date'
 class ActivitiesController < ApplicationController
+  before_filter :corresponding_day_page, :only => :index
+  before_filter :sort_by_vote_count, :only => [:index, :create, :search]
 
   def index
-    if week_day # need to add < 5 IOT function, removed for development purposes
-      @activities = Activity.all
-      @activity = Activity.new
-      @sorted_by_vote = Activity.sort_acrtivities(@activities)
+    @activities = Activity.all
+    @activity   = Activity.new
+    @vote       = Vote.new
+
+    @sorted_by_vote = Activity.sort_acrtivities(@activities)
       today = (Time.now.midnight..Time.now)
-      @trending_activities = Activity.where(created_at: today)
-      @recent_activities = Activity.where(created_at: today)
-      @trending_activities = Activity.sort_acrtivities(@trending_activities)
-      @vote = Vote.new
-    elsif week_day == 6
-      render 'gone_fishing'
-    else
-      render 'rsvp'
-    end
+    @recent_activities = Activity.where(created_at: today)
+    @trending_activities = Activity.where(created_at: today)
+    @trending_activities = Activity.sort_acrtivities(@trending_activities)
+
+    render :index
   end
 
   def show
@@ -27,15 +26,17 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    @vote       = Vote.new
+    @activities = Activity.all
     @activity   = Activity.new(activity_params)
     @activity.save
-    @activities = Activity.all
+    
     @sorted_by_vote = Activity.sort_acrtivities(@activities)
     today = (Time.now.midnight..Time.now)
     @trending_activities = Activity.where(created_at: today)
     @recent_activities = Activity.where(created_at: today)
     @trending_activities = Activity.sort_acrtivities(@trending_activities)
-    @vote       = Vote.new
+
     render :index
   end
 
@@ -45,44 +46,61 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-
+    
     if @activity.update(activity_params)
-      redirect_to @activity
+      redirect_to activities_path
     else
-      render edit_activity_path
+      render :edit
     end
   end
 
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
-    redirect_to root_path
-  end
-
-  def week_day
-    day = Date.today.wday
-  end
-
-  def activity_params
-    params.require(:activity).permit(:title, :description, :location,
-      :category, :icon, :photo, :necessities, :user_id)
+    redirect_to activities_path
   end
 
   def search
-    @activities = Activity.where(category: params[:query].downcase)
-    if @activities.count > 1
-      @sorted_by_vote = Activity.sort_acrtivities(@activities)
-    else
-      @sorted_by_vote = @activities
-    end
-    today = (Time.now.midnight..Time.now)
-    @trending_activities = @activities.where(created_at: today)
-    @trending_activities = Activity.sort_acrtivities(@trending_activities)
-
-    @recent_activities = @activities.where(created_at: today)
-    @activity = Activity.new
-    @vote = Vote.new
-    render :index
+   @activities = Activity.where(category: params[:query].downcase)
+     if @activities.count > 1
+       @sorted_by_vote = Activity.sort_acrtivities(@activities)
+     else
+       @sorted_by_vote = @activities
+     end
+     today = (Time.now.midnight..Time.now)
+     @trending_activities = @activities.where(created_at: today)
+     @trending_activities = Activity.sort_acrtivities(@trending_activities)
+ 
+     @recent_activities = @activities.where(created_at: today)
+     @activity = Activity.new
+     @vote = Vote.new
+     render :index
   end
+
+  private
+
+    def saturday?
+      Date.today.wday == 6
+    end
+    
+    def friday?
+      Date.today.wday == 5
+    end
+    
+    def activity_params
+      params.require(:activity).permit(:title, :description, :location,
+        :category, :icon, :photo, :necessities, :user_id)
+    end
+
+    def corresponding_day_page
+      @event = Event.last
+      redirect_to @event if friday?
+      redirect_to @event if saturday?
+    end
+    
+    def sort_by_vote_count
+      activities = Activity.all
+      @sorted_by_vote = Activity.sort_acrtivities(activities)
+    end
 
 end
