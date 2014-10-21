@@ -50,11 +50,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :username, :email, :photo, :motto, :password, :professional_blurb)
     end
 
-    # def send_event_recap_email
-      # if Date.today.wday == 1
-        # PresentationMailer.event_recap(@user).deliver
-      # end
-    #   PresentationMailer.delay_until(3.minutes.from_now).status_resport(@user.id)
-    # end
-
 end

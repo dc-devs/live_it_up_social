@@ -2,14 +2,43 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <style type="text/css">
+  body, td { color:#000000; font-size:14px; font-family:Verdana,Helvetica,Arial; }
+  .divider { background-color:#555555; height:2px; }
+  .episode h2 { margin-top:0; margin-bottom:8px; font-size:18px; }
+  .episode p { margin:8px 0; }
+  #footer { font-size:11px; color:#555555; }
+  #footer a { color:#555555;}
+  </style>
   </head>
-  <body>
-    <h1 align="center">Welcome, <%= @user.first_name %></h1>
-    <p>
-      Thanks for signing up to Live It Up Social!<br>
-      Add a new activity, get behind existing ideas, and get excited that you're now a part of the best active/social group in SF!
-    </p>
-
-    <p>Thanks for joining and have a great day! See you this weekend!</p>
-  </body>
+  <table width="100%" id="background" border="0" cellpadding="0" cellspacing="0">
+    <tr><td align="center" valign="top">
+      <table width="650" id="main" border="0" cellpadding="0" cellspacing="20">
+        <tr>
+        </tr>
+        <tr>
+          <td class="divider" colspan="2" bgcolor="#555555" height="2"></td>
+        </tr>
+        <tr class="episode">
+          <td valign="top">
+            <h2>Welcome, <%=@user.first_name %>!</h2>
+            <p>Thanks for signing up to Live It Up Social!<br>
+            Add a new activity, get behind existing ideas, and get excited that you're now a part of the best active/social group in SF!</p>
+            <p>
+              Thanks for joining and have a great day! See you this weekend!
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="divider" colspan="2" bgcolor="#555555" height="2"></td>
+        </tr>
+        <tr>
+          <td id="footer" colspan="2" align="center">
+            <p>&copy;2014 Live It Up Social</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
 </html>
