@@ -8,6 +8,12 @@ class ActivitiesController < ApplicationController
     @activity   = Activity.new
     @vote       = Vote.new
 
+    @sorted_by_vote = Activity.sort_acrtivities(@activities)
+      today = (Time.now.midnight..Time.now)
+    @recent_activities = Activity.where(created_at: today)
+    @trending_activities = Activity.where(created_at: today)
+    @trending_activities = Activity.sort_acrtivities(@trending_activities)
+
     render :index
   end
 
@@ -20,15 +26,18 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity   = Activity.new(activity_params)
-    @activities = Activity.all
     @vote       = Vote.new
+    @activities = Activity.all
+    @activity   = Activity.new(activity_params)
+    @activity.save
     
-      if @activity.save
-        redirect_to activities_path
-      else
-        render :index
-      end
+    @sorted_by_vote = Activity.sort_acrtivities(@activities)
+    today = (Time.now.midnight..Time.now)
+    @trending_activities = Activity.where(created_at: today)
+    @recent_activities = Activity.where(created_at: today)
+    @trending_activities = Activity.sort_acrtivities(@trending_activities)
+
+    render :index
   end
 
   def edit
@@ -52,11 +61,20 @@ class ActivitiesController < ApplicationController
   end
 
   def search
-    @activities = Activity.where(category: params[:query].downcase)
-    @activity   = Activity.new
-    @vote       = Vote.new
-    
-    render :index
+   @activities = Activity.where(category: params[:query].downcase)
+     if @activities.count > 1
+       @sorted_by_vote = Activity.sort_acrtivities(@activities)
+     else
+       @sorted_by_vote = @activities
+     end
+     today = (Time.now.midnight..Time.now)
+     @trending_activities = @activities.where(created_at: today)
+     @trending_activities = Activity.sort_acrtivities(@trending_activities)
+ 
+     @recent_activities = @activities.where(created_at: today)
+     @activity = Activity.new
+     @vote = Vote.new
+     render :index
   end
 
   private

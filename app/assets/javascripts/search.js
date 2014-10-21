@@ -17,8 +17,12 @@ $(function() {
     });
   });
 
-  $(function() {
-    $( "#tabs" ).tabs();
-  });
-  $('#myTab a[href="#vote"]').tab('show')
+  // $(function() {
+  //   $( "#tabs" ).tabs();
+  // });
+//   $('#myTab a').click(function (e) {
+//   e.preventDefault()
+//   $(this).tab('show')
+// })
+//   $('#myTab a:last').tab('show')
 });
