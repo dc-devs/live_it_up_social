@@ -16,7 +16,7 @@ class Activity < ActiveRecord::Base
       list << act.votes.count
     end
 
-    return list if list.size <= 1 # already sorted
+    return activities if list.size <= 1 # already sorted
     swapped = true
     while swapped do
       swapped = false

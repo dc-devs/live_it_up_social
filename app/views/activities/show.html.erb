@@ -16,6 +16,7 @@
 <p> <strong>Location: </strong><%= @activity.location %></p>
 <p> <strong>Category: </strong><%= @activity.category %></p>
 <p> <strong>Necessities: </strong><%= @activity.necessities %></p>
-<h4><%= link_to 'See All Activities', activities_path %></h4s>
-
+<h4><%= link_to 'See All Activities', activities_path %></h4>
+<h4><%= link_to 'Edit Activity', edit_activity_path %></h4>
+<h4><%= link_to 'Delete Activity', activity_path, method: :delete %></h4>
 </section>
