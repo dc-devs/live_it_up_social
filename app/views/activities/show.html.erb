@@ -1,22 +1,183 @@
-<section class='activity_view_bckgrd'>
-    <div class="activity-view-userProfilePhoto" >
+<div class="container">
+
+<div class="activities-userProfileFixedWrapper">
+<div class="activities-userProfileWrapper">
+  <div class="activities-userProfilePhoto" >
+    <%= link_to image_tag(current_user.photo_url(:profile_settings_thumb).to_s, :class => "activities-userProfileImg"), user_path(current_user) %>
+    <div class="activities-userProfileAttsWrapper">
+
+    <div class="activities-userProfileAtts">
+
+      <div class="activities-userAtts">
+        <p>Activities</p>
+        <h4><%= current_user.activities.count %></h4>
+      </div>
+      <div class="activities-userAtts">
+        <p>Remaining Votes</p>
+        <h4 id='remaining-votes'><%= current_user.remaining_votes%></h4>
+      </div>
+      <div class="activities-userAtts">
+        <p>User Rating</p>
+        <h4>110%</h4>
+      </div>
 
     </div>
-</section>
-<section class='activity-view-all-info'>
-<h2>
-  <strong><%= @activity.title %></strong>
-</h2>
 
-<p>
-  <strong>Description: </strong>
-  <%= @activity.description %>
-</p>
+    <div class="activities-navTabsWrapper">
+     <!-- Nav tabs -->
+      <ul class="nav nav-pills activities-nav-pills" role="tablist">
+        <li class="active">
+          <a href="#home" role="tab" data-toggle="tab" class="activities-btn-tabs">
+            My Activities
+          </a>
+        </li>
+        <li>
+          <a href="#profile" role="tab" data-toggle="tab" class="activities-btn-tabs">
+            Voted Activities
+          </a>
+        </li>
+        <li>
+          <%= link_to "Add Activity", "#", :class=> "activities-btn-tabs btn-old btn-green", 'data-toggle'=>"modal", 'data-target'=>"#addActivityModal" %>
+        </li>
+      </ul>
+     <!-- Tab panes -->
+      <div class="tab-content activities-tab-content">
 
-<p> <strong>Location: </strong><%= @activity.location %></p>
-<p> <strong>Category: </strong><%= @activity.category %></p>
-<p> <strong>Necessities: </strong><%= @activity.necessities %></p>
-<h4><%= link_to 'See All Activities', activities_path %></h4>
-<h4><%= link_to 'Edit Activity', edit_activity_path %></h4>
-<h4><%= link_to 'Delete Activity', activity_path, method: :delete %></h4>
-</section>
+        <div class="tab-pane fade in active" id="home">
+          <% activities = @activities.where(user_id: current_user.id) %>
+          <ul class="list-unstyled activities-miniList">
+            <div id="scroll-myActivities" class="wrapper">
+              <div> <!-- ScrollBar -->
+                <% activities.each do |activity| %>
+                <li>
+                  <%= image_tag activity.photo_url(:mini_activity_list_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
+                  <%= activity.title %>
+                  <div class="activities-miniBackersWrapper text-center">
+                    <span><%= activity.votes.count %></span><br/>
+                    votes
+                  </div>
+                </li>
+              <% end %>
+            </div><!-- ScrollBar -->
+           </div> <!-- ScrollBar -->
+          </ul>
+        </div>
+
+        <div class="tab-pane fade" id="profile">
+        <% activities = current_user.activities %>
+            <ul class="list-unstyled activities-miniList">
+             <div id="scroll-myVotes" class="wrapper">
+               <div> <!-- ScrollBar -->
+                <% activities.each do |activity| %>
+                    <li>
+                      <%= image_tag activity.photo_url(:mini_activity_list_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
+                      <%= activity.title %>
+                      <div class="activities-miniBackersWrapper text-center">
+                        <span><%= activity.votes.count %></span><br/>
+                        votes
+                      </div>
+                    </li>
+                <% end %>
+              </div><!-- end scroll-myVotes -->
+            </div><!-- end scroll-myVotes -->
+          </ul>
+        </div>
+      </div>
+
+      </div> <!-- end NavTabs Wrapper -->
+
+    </div>
+  </div>
+</div>
+</div><!-- end activities-userProfileFixedWrapper -->
+
+
+<!-- Activity Main Section -->
+<div class="event-winnerWrapper">
+  <div class="text-center">
+    <h3>
+      <span>Activity Details:</span>
+      Lets go <%= @activity.title %>!!
+    </h3>
+  </div>
+</div><!-- end event-Wrapper -->
+
+<div class="event-Wrapper">
+  <div class="center">
+    <!-- Add stock activity photo -->
+    <%= image_tag @activity.photo_url.to_s, :style => "border-radius:5px; width: 100%; height:250px;" %>
+  </div>
+</div><!-- end event-Wrapper -->
+
+<div class="event-Wrapper">
+  <div class="event-Header center">
+    <ul class="list-unstyled zero">
+      <li>
+        <p class="event-Label">
+          Title:
+        </p>
+        <p class="event-Content">
+          <%= @activity.title %>
+        </p>
+      </li>
+      <li>
+        <p class="event-Label">
+          Description:
+        </p>
+        <p class="event-Content">
+          <%= @activity.description %>
+        </p>
+      </li>
+      <li>
+        <p class="event-Label">
+          Location:
+        </p>
+        <p class="event-Content">
+          <%= @activity.location %>
+        </p>
+      </li>
+      <li>
+        <p class="event-Label">
+          Category:
+        </p>
+        <p class="event-Content">
+          <%= @activity.category %>
+        </p>
+      </li>
+      <li>
+        <p class="event-Label">
+          Necessities:
+        </p>
+        <p class="event-Content">
+          <%= @activity.necessities %>
+        </p>
+      </li>
+      <li>
+    </ul>
+  </div>
+</div><!-- end event-Wrapper -->
+
+<div class="event-Wrapper">
+  <div class="center">
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3152.3911123256967!2d-122.46844400000002!3d37.804306999999994!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586dd47dc1d61%3A0x8f70157ca433cc78!2sPlanet+Granite!5e0!3m2!1sen!2sus!4v1413762056273" width="100%" height="450" frameborder="0" style="border:0"></iframe>
+  </div>
+
+  <!-- Nav Tabs -->
+   <ul class="nav nav-pills activities-nav-pills" role="tablist">
+    <li>
+    <%= link_to 'See All Activities', activities_path %>
+    </li>
+    <li>
+    <%= link_to 'Edit Activity', edit_activity_path %>
+    </li>
+    <li>
+    <%= link_to 'Delete Activity', activity_path, method: :delete %>
+    </li>
+  </ul>
+
+</div><!-- end event-Wrapper -->
+
+
+
+
