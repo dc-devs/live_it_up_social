@@ -6,14 +6,30 @@ $( document ).ready(function(){
 
     $("#homepage_body").css("background", "url(assets/"+background_images[[Math.floor(Math.random()*background_images.length)]]+") no-repeat").addClass("parallax");
 
-//Trying to fix navbar
+//Trying to fix navbar to show on mouseover
 
-(function(){
-    $(".navbar").mouseover(function() {
-    $(".navbar-header").show();
-  });
-  });
-//End of attempt
+    // $(window).scroll(function() {
+    //     if ($(window).scrollTop() > 300) {
+    //         $('.navbar').fadeIn();
+    //     }
+    //     else {
+    //         $('.navbar').fadeOut();
+    //     }
+    // });
+
+    //   (function(){
+    //     $('.navbar').mouseover( function () {
+    //       $(this).fadeIn();
+    //       });
+
+    //     $('.navbar').mouseleave( function () {
+    //         if($(window).scrollTop() > 300) {
+    //             $(this).fadeOut();
+    //         }
+    //     });
+
+    // })
+//End of attempt (FAIL)
 
     $(document).scroll(function () {
       var y = $(this).scrollTop();
