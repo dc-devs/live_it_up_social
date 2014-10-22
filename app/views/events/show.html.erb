@@ -147,6 +147,21 @@
       </li>
       <li>
         <p class="event-Label">
+          Upload Your Photos!
+        </p>
+        <p class="event-Content">
+          <%= form_for @photo do |f| %>
+            <%= f.file_field :photo_url %>
+            <%= f.hidden_field :event_id, value: @event.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.submit 'Submit Photo' %>
+          <% end %>
+        </p>
+
+      </li>
+
+      <li>
+        <p class="event-Label">
           Location:
         </p>
         <p class="event-Content">
