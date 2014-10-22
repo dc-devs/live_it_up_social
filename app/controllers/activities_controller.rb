@@ -30,15 +30,16 @@ class ActivitiesController < ApplicationController
     @vote       = Vote.new
     @activities = Activity.all
     @activity   = Activity.new(activity_params)
-    @activity.save
-
-    @sorted_by_vote = Activity.sort_acrtivities(@activities)
-    today = (Time.now.midnight..Time.now)
-    @trending_activities = Activity.where(created_at: today)
-    @recent_activities = Activity.where(created_at: today)
-    @trending_activities = Activity.sort_acrtivities(@trending_activities)
-
-    render :index
+    if @activity.save
+      @sorted_by_vote = Activity.sort_acrtivities(@activities)
+      today = (Time.now.midnight..Time.now)
+      @trending_activities = Activity.where(created_at: today)
+      @recent_activities = Activity.where(created_at: today)
+      @trending_activities = Activity.sort_acrtivities(@trending_activities)
+      render :index
+    else
+      render :new
+    end
   end
 
   def edit
