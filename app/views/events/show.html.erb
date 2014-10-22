@@ -53,10 +53,10 @@
           <ul class="list-unstyled activities-miniList">
             <div id="scroll-eventAccepted" class="wrapper">
               <div> <!-- ScrollBar -->
-                <% @event.users.each do |user| %>
+                <% @event.users.distinct.each do |user| %>
                 <li>
                   <%= image_tag user.photo_url(:logged_in_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
-                  <%= user.first_name %><%= user.last_name %>
+                  <%= user.first_name %> <%= user.last_name %>
                   <div class="activities-miniBackersWrapper text-center">
                     <span><%= user.activities.count %></span><br/>
                     votes

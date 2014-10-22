@@ -48,7 +48,7 @@
           <ul class="list-unstyled activities-miniList">
             <div id="scroll-myActivities" class="wrapper">
               <div> <!-- ScrollBar -->
-                <% activities.each do |activity| %>
+                <% activities.distinct.each do |activity| %>
                 <li>
                   <%= image_tag activity.photo_url(:mini_activity_list_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
                   <%= activity.title %>
@@ -68,7 +68,7 @@
             <ul class="list-unstyled activities-miniList">
              <div id="scroll-myVotes" class="wrapper">
                <div> <!-- ScrollBar -->
-                <% activities.each do |activity| %>
+                <% activities.distinct.each do |activity| %>
                     <li>
                       <%= image_tag activity.photo_url(:mini_activity_list_thumb).to_s, :class=> "activities-listPhoto activities-miniListPhoto" %>
                       <%= activity.title %>
@@ -134,7 +134,8 @@
             <li>
               <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
               <div id="activities-ArrowUp" class="">
-                <div class="glyphicon glyphicon-chevron-up"></div>
+                <%= image_tag "arrow.png" %>
+                <!-- <div class="glyphicon glyphicon-chevron-up"></div> -->
               </div>
               <div class="activities-votesWrapper text-center">
                <span>
