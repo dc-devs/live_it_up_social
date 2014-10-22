@@ -1,5 +1,4 @@
 <div class="container">
-
 <div class="activities-userProfileFixedWrapper">
 <div class="activities-userProfileWrapper">
   <div class="activities-userProfilePhoto" >
@@ -92,8 +91,6 @@
 </div>
 </div><!-- end activities-userProfileFixedWrapper -->
 
-
-
 <div class="activities-listWrapper"> 
 
   <div class="row activities-activitiesListHeader">
@@ -123,31 +120,49 @@
       </a>
     </li>
   </ul>
-
 <!--  Recent Activities tab -->
 <div class="tab-content">
   <div class="tab-pane fade in active" id="recently">
     <ul class="list-unstyled">
   <% @activities.order(created_at: :desc).each do |activity| %>
-       <%= link_to activity do %>
-        <li>
-          <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
-          <%= activity.title %>
-        </li>
-      <% end %>
+
+      <!-- Form For ajax Vote -->
       <%= form_for @vote do |f| %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :activity_id, :value => activity.id %>
-        <%= f.button :class => "activities-voteUpButton" do %>
-          <div class="activities-BackersWrapper text-center">
-            <span><%= activity.votes.count %></span><br/>
-          </div>
-        <% end %>
-      <% end %>
-    <%end%>
+        
+
+        <%= f.button :class=> "activities-listItem" do %>
+
+
+            <li>
+                <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
+                <%= activity.title %>
+                
+                <div id="activities-ArrowUp" class="">
+                   <div class="glyphicon glyphicon-chevron-up"></div>
+                </div>
+              
+              <div class="activities-votesWrapper text-center">
+               <span>
+                 <%= activity.votes.count %>
+               </span>
+               <br/>
+              </div>
+
+            </li>
+
+        <% end %><!-- END Button-->
+
+
+      <% end %> <!-- END FORM -->
+          
+
+    <%end%><!-- END ACTIVITIES EACH DO -->
   </ul>
   </div>
-  <div class="tab-pane fade" id="trending">     <ul class="list-unstyled">
+  <div class="tab-pane fade" id="trending">
+    <ul class="list-unstyled">
        <% @trending_activities.each do |activity| %>
        <%= link_to activity do %>
         <li>
@@ -166,7 +181,8 @@
       <% end %>
     <%end%> <!-- End of Activity -->
   </ul> </div>
-  <div class="tab-pane fade" id="votes">       <ul class="list-unstyled">
+  <div class="tab-pane fade" id="votes">       
+  <ul class="list-unstyled">
      <% @sorted_by_vote.each do |activity| %>
      <%= link_to activity do %>
       <li>
@@ -188,19 +204,7 @@
 </div><!-- End of Voting Activities -->
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-  <div class="modal-dialog activities-addActivityModalDialog">
-    <div class="modal-content activities-addActivityModalContent">
-      <div class="modal-body zero">
-        <%= render 'activity_modal_form' %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+<%= render 'activities/modal_add_activity' %>
 
 
 
