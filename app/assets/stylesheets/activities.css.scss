@@ -247,6 +247,7 @@ background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.01) 100%)
     border-top: 1px solid transparent !important;
     border-left: 1px solid transparent !important;
     border-radius: 0px !important;
+    color: #181818 !important;
   &:hover{
     border-color: #eeeeee #eeeeee #dddddd !important;
     border-radius: 0px !important;
@@ -382,6 +383,17 @@ ul.ui-autocomplete{
 .zero-opacity{
   opacity:0 !important;
 }
+
+.activites-activityTitle{
+  position: absolute;
+  margin: -53px 0 0 91px;
+  font-size: 23px;
+  font-weight: 200;
+&:hover{
+  text-decoration: underline !important;
+}
+
+  }
 
 
 
