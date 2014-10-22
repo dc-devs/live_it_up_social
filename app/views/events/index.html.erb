@@ -1,6 +1,44 @@
-<h1> All Events </h1>
-<ul>
-<% @events.each do |event| %>
-<li><%= event.date %> | <%= event.start_time %> | <%= event.duration %></li></a>
-<% end %>
-</ul>
+<div="container">
+  <div class="pic-title">
+    <h1>Past Events</h1>
+  </div>
+  <div id="pic-polaroid-container">
+    <div class="wrap">
+      <a href="#" class="polaroid"><%= image_tag "lands_end_2.jpg" %></a>
+      <p>Land's End, October 2014</p>
+    </div>
+    <div class="wrap2">
+      <a href="#" class="polaroid"><%= image_tag "cable_car.jpg" %></a>
+      <p>Cable Cars, June 2014</p>
+    </div>
+    <div class="wrap3">
+      <a href="#" class="polaroid"><%= image_tag "fort_mason.jpg" %></a>
+      <p>Fort Mason, August 2014</p>
+    </div>
+    <div class="wrap3">
+      <a href="#" class="polaroid"><%= image_tag "gg-bridge.jpg" %></a>
+      <p>Golden Gate, September 2014</p>
+    </div>
+    <div class="wrap2">
+      <a href="#" class="polaroid"><%= image_tag "lands_end_5.jpg" %></a>
+      <p>Hiking SF, July 2014</p>
+    </div>
+    <div class="wrap">
+      <a href="#" class="polaroid"><%= image_tag "main_background.jpg" %></a>
+      <p>Biking Marin, June 2014</p>
+    </div>
+    <div class="wrap">
+      <a href="#" class="polaroid"><%= image_tag "ocean_beach.jpg" %></a>
+      <p>Ocean Beach, May 2014</p>
+    </div>
+    <div class="wrap2">
+      <a href="#" class="polaroid"><%= image_tag "pier.jpg" %></a>
+      <p>SF Waterfront, October 2014</p>
+    </div>
+    <div class="wrap3">
+      <a href="#" class="polaroid"><%= image_tag "lands_end_9.jpg" %></a>
+      <p>Drunk Guy, October 2014</p>
+    </div>
+  </div>
+
+</div>
