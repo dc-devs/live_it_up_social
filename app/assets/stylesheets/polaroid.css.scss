@@ -1,0 +1,72 @@
+.pic-title h1{
+  color: #19a919;
+  font-size: 25px;
+  font-weight: 200;
+  text-align: center;
+}
+div.wrap {
+  margin: 5%;
+  background: #eee;
+  display: inline-block;
+  padding: 16px 12px 20px;
+  border-radius: 3px;
+  -webkit-box-shadow:  2px -1px 15px 2px rgba(0, 0, 0, .5);
+  box-shadow:  2px -1px 15px 2px rgba(0, 0, 0, .5);
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+}
+
+div.wrap2 {
+  margin: 5%;
+  background: #eee;
+  display: inline-block;
+  padding: 16px 12px 20px;
+  border-radius: 3px;
+  -webkit-box-shadow:  2px -1px 15px 2px rgba(0, 0, 0, .5);
+  box-shadow:  2px -1px 15px 2px rgba(0, 0, 0, .5);
+  position: relative;
+  top: 25px;
+}
+div.wrap3 {
+  margin: 5%;
+  background: #eee;
+  display: inline-block;
+  padding: 16px 12px 20px;
+  border-radius: 3px;
+  -webkit-box-shadow:  2px -1px 15px 2px rgba(0, 0, 0, .5);
+  box-shadow:  2px -1px 15px 2px rgba(0, 0, 0, .5);
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+}
+
+div.wrap:hover, div.wrap2:hover, div.wrap3:hover {
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  position: relative;
+  z-index: 5;
+}
+
+div.wrap p, div.wrap2 p, div.wrap3 p {
+  padding-top: 7%;
+  text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+
+
+a.polaroid {
+  background: center center no-repeat;
+  background-size: cover;
+  display: block;
+  height: 200px;
+  width: 200px;
+  -webkit-box-shadow: inset 0px 0px 35px 10px rgba(0, 0, 0, .5);
+  box-shadow: inset 0px 0px 35px 10px rgba(0, 0, 0, .5);
+}
+
+a.polaroid img {
+  height: 200px;
+  width: 200px;
+}
+
+
