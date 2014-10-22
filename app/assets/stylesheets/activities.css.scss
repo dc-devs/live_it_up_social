@@ -338,16 +338,35 @@ ul.ui-autocomplete{
 
 #activities-ArrowUp{
   position: absolute;
-  margin: -74px 0 0 558px;
+  text-align: center;
+  width: 60px !important;
+  height: 60px !important;
+  margin: -64px 0 0 547px;
   display: block;
   z-index: 10;
   color: #19a919 !important;
   font-size: 40px;
-  opacity:0;
+  opacity: 0;
+  -webkit-transition: all .5s ease;
   transition: all .5s ease;
+  z-index:10;
 }
-#activities-listItem:hover #activities-ArrowUp{
-  margin: -68px 0 0 558px;
-  opacity:1;
+
+.move-arrow-up {
+  margin: -61px 0 0 547px !important;
+  opacity:1 !important;
 }
+
+.activities-listItem {
+  border: 1px solid #e1e8ed;
+  border-top: 1px solid #e1e8ed;
+}
+
+.activities-listItem:hover {
+  border: 1px solid #19a919;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(25, 169, 25, 0.6);
+}
+
+
 

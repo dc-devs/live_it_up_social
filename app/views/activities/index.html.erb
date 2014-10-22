@@ -126,14 +126,15 @@
     <ul class="list-unstyled">
   <% @activities.order(created_at: :desc).each do |activity| %>
        <%= link_to activity do %>
-        <li id="activities-listItem">
+        <li class="activities-listItem">
           <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
           <%= activity.title %>
-          <div id="activities-ArrowUp">
-            <%= image_tag 'arrow.png' %>
-            <!-- <div class="glyphicon glyphicon-chevron-up"></div> -->
+          <div id="activities-ArrowUp" class="">
+           <div class="glyphicon glyphicon-chevron-up"></div>
           </div>
         </li>
+      
+      
         
       <% end %>
       <%= form_for @vote do |f| %>

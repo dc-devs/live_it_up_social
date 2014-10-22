@@ -5,15 +5,39 @@ $(document).ready(function ($) {
   $('#scroll-eventInvited').perfectScrollbar();
   $('#scroll-eventAccepted').perfectScrollbar();
   
-  // $('.activities-ArrowUp').hover( handlerIn, handlerOut )
+  $('.activities-listItem').bind({
+  mouseenter: function(e) {
+    console.log(e.delegateTarget.childNodes[3]);
+  // Hover event handler
+   $(e.delegateTarget.childNodes[3]).addClass('move-arrow-up');
+  },
+  mouseleave: function(e) {
+  // Hover event handler
+  $(e.delegateTarget.childNodes[3]).removeClass('move-arrow-up');
+  },
+  click: function(e) {
+  // Click event handler
+   console.log(e.delegateTarget)
+   $(e.delegateTarget).addClass('highlight-green');
+  },
+  blur: function(e) {
+  // Blur event handler
+   $(e.delegateTarget).addClass('highlight-green');
+  }
+ });
+ 
 
-  //   console.log($('.activities-voteUpButton'));
-  // function handlerIn(){
-  //   $('.activities-ArrowUp').fadeOut();
-  // }
+  //$('.activities-listItem').hover( handlerIn, handlerOut )
+  
+  function handlerIn(){
+     console.log("Handle IN!");
+    
+  }
 
-  // function handlerOut(){
-  //   $('.activities-ArrowUp').fadeIn();
-  // }
+  function handlerOut(){
+    console.log("Handle Out!");
+
+    
+  }
 
 });
