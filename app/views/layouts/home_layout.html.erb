@@ -10,6 +10,7 @@
   <title><%= content_for?(:title) ? yield(:title) : "Live It Up Social" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
 
   <%= csrf_meta_tags %>
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -46,17 +47,17 @@
           <li>
                <div class="dropdown">
                 <button class="btn-dropdown dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                <%= link_to image_tag(current_user.photo_url(:logged_in_thumb).to_s, :class => "app-userMiniProfileImg"), activities_path %>             
-                <%= current_user.first_name %> 
+                <%= link_to image_tag(current_user.photo_url(:logged_in_thumb).to_s, :class => "app-userMiniProfileImg"), activities_path %>
+                <%= current_user.first_name %>
                 </button>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation">
-                      
+
                         <%= link_to 'Profile', user_path(current_user) %>
                     </li>
                     <li role="presentation">
                         <%= link_to 'Log out', session_path(current_user), method: :delete%>
-                      
+
                     </li>
                   </ul>
                 </div>
@@ -89,7 +90,7 @@
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <div class="caption text-center">
-          <h3><span class="glyphicon glyphicon-edit">Sign Up</span></h3>
+          <h3 class="home-info-title"><span class="glyphicon glyphicon-edit">Sign Up</span></h3>
           <p>Sign up to see what event we're doing this weekend.</p>
         </div>
       </div>
@@ -97,7 +98,7 @@
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <div class="caption text-center">
-          <h3><span class="glyphicon glyphicon-check">Add an Activity</span></h3>
+          <h3 class="home-info-title"><span class="glyphicon glyphicon-check">Add an Activity</span></h3>
           <p>Suggest a new activity or get behind one of our listed ideas.</p>
         </div>
       </div>
@@ -105,7 +106,7 @@
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <div class="caption text-center">
-          <h3><span class="glyphicon glyphicon-glass">Have Fun</span></h3>
+          <h3 class="home-info-title"><span class="glyphicon glyphicon-glass">Have Fun</span></h3>
           <p>Hike, climb, bike, etc. with us (*etc. often means drinking)!
         </div>
       </div>
@@ -114,7 +115,45 @@
   <br>
   <br>
   <div class="container">
-    <div class="row">
+    <div id="pic-polaroid-container">
+    <div class="wrap">
+      <a href="#" class="polaroid"><%= image_tag "lands_end_2.jpg" %></a>
+      <p>Land's End, October 2014</p>
+    </div>
+    <div class="wrap2">
+      <a href="#" class="polaroid"><%= image_tag "cable_car.jpg" %></a>
+      <p>Cable Cars, June 2014</p>
+    </div>
+    <div class="wrap3">
+      <a href="#" class="polaroid"><%= image_tag "fort_mason.jpg" %></a>
+      <p>Fort Mason, August 2014</p>
+    </div>
+    <div class="wrap3">
+      <a href="#" class="polaroid"><%= image_tag "gg-bridge.jpg" %></a>
+      <p>Golden Gate, September 2014</p>
+    </div>
+    <div class="wrap2">
+      <a href="#" class="polaroid"><%= image_tag "lands_end_5.jpg" %></a>
+      <p>Hiking SF, July 2014</p>
+    </div>
+    <div class="wrap">
+      <a href="#" class="polaroid"><%= image_tag "main_background.jpg" %></a>
+      <p>Biking Marin, June 2014</p>
+    </div>
+    <div class="wrap">
+      <a href="#" class="polaroid"><%= image_tag "ocean_beach.jpg" %></a>
+      <p>Ocean Beach, May 2014</p>
+    </div>
+    <div class="wrap2">
+      <a href="#" class="polaroid"><%= image_tag "pier.jpg" %></a>
+      <p>SF Waterfront, October 2014</p>
+    </div>
+    <div class="wrap3">
+      <a href="#" class="polaroid"><%= image_tag "lands_end_9.jpg" %></a>
+      <p>Drunk Guy, October 2014</p>
+    </div>
+  </div>
+    <!-- <div class="row">
       <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive homepage-collage" src="http://www.topratedtravel.net/wp-content/uploads/2013/03/sanfrancisco1.jpg" /></div>
       <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive homepage-collage" src="http://fhww.files.wordpress.com/2013/09/9667792221_c3d65b6c22.jpg?w=500&h=333" /></div>
       <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive homepage-collage" src="http://sf.newleaderscouncil.org/wp-content/uploads/2013/01/1.jpg" /></div>
@@ -123,7 +162,7 @@
       <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive homepage-collage" src="http://static.guim.co.uk/sys-images/Travel/Pix/pictures/2010/1/13/1263398990808/A-cyclist-rides-across-Sa-001.jpg" /></div>
       <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive homepage-collage" src="http://media-cdn.tripadvisor.com/media/photo-s/02/47/76/3d/awesome-routes.jpg" /></div>
       <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive homepage-collage" src="http://favim.com/orig/201106/04/city-friends-girl-jump-love-san-francisco-Favim.com-65898.jpg" /></div>
-      </div>
+      </div> -->
   </div>
 
   </article>
@@ -143,7 +182,7 @@
           <div class="modal-body zero">
             <%= render 'sessions/new' %>
           </div>
-       
+
         <div class="sessions-loginModalFooter">
          <p>Don't have an account? <a href="/sign_up" class="need-sign-up">Sign up</a></p>
         </div>
