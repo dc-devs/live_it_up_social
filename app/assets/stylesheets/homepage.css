@@ -7,6 +7,9 @@
   font-size: 50px;
   opacity: .8;
 }
+.home-info-title:hover {
+  color: #19a919;
+}
 
 .homepage_text{
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
