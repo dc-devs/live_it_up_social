@@ -11,6 +11,7 @@
   <title><%= content_for?(:title) ? yield(:title) : "Live It Up Social" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 
   <%= csrf_meta_tags %>
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -44,9 +45,7 @@
 
         <ul class="nav navbar-nav pull-right">
           <li >
-            <a href="#">
-              Past Events
-            </a>
+            <%= link_to "Past Events", events_path %>
           </li>
           <li>
             <%= link_to "Votable Activities", activities_path %>
@@ -55,17 +54,17 @@
           <li>
                <div class="dropdown">
                 <button class="btn-dropdown dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                <%= link_to image_tag(current_user.photo_url(:logged_in_thumb).to_s, :class => "app-userMiniProfileImg"), activities_path %>             
-                <%= current_user.first_name %> 
+                <%= link_to image_tag(current_user.photo_url(:logged_in_thumb).to_s, :class => "app-userMiniProfileImg"), activities_path %>
+                <%= current_user.first_name %>
                 </button>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation">
-                      
+
                         <%= link_to 'Profile', user_path(current_user) %>
                     </li>
                     <li role="presentation">
                         <%= link_to 'Log out', session_path(current_user), method: :delete%>
-                      
+
                     </li>
                   </ul>
                 </div>
