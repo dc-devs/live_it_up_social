@@ -1,22 +1,38 @@
-<span id="picture_count"><% @picture_count %></span>
 
 <div id="jmpress">
 
-  <div class="step" id="pic_1" data-x="0" data-rotate="0" data-z="10000" data-scale="0"><%= image_tag "lands_end_1.jpg" %></div>
+  <% @photos.each_with_index do |photo, index| %>
+  <% index % 4 == 0 ? line_id = "line_1" : %>
+  <% index % 4 == 1 ? line_id = "line_2" : %>
+  <% index % 4 == 2 ? line_id = "line_3" : %>
+  <% index % 4 == 3 ? line_id = "line_4" : %>
 
-  <div class="step" id="pic_2" data-x="3000" data-z="9000"data-rotate="0" data-scale="0"><%= image_tag "lands_end_2.jpg" %></div>
+  <% index % 2 == 0 ? vertical_align = 150 : vertical_align = -150 %>
 
-  <div class="step" id="pic_3" data-x="6000" data-rotate="0" data-z="8000" data-scale="0"><%= image_tag "lands_end_3.jpg" %></div>
+  <% index % 4 == 0  ? vertical_jump = 1000 : vertical_jump = 0 %>
 
-  <div class="step" id="pic_4" data-x="9000" data-z="7000" data-rotate="0" data-scale="0"><%= image_tag "lands_end_4.jpg" %></div>
 
-  <div class="step" id="pic_5" data-x="12000" data-z="6000" data-rotate="0" data-scale="0"><%= image_tag "lands_end_5.jpg" %></div>
+    <div class="step" id="pic_<%=index%>" data-x="<%= index * 1200 %>" data-y="<%= vertical_align + vertical_jump %>" data-rotate="0" data-z="0" data-scale="0">
 
-  <div class="step" id="pic_6" data-x="15000" data-z="5000" data-rotate="0" data-scale="0"><%= image_tag "lands_end_6.jpg" %></div>
+      <div id="photo_wrapper">
+      <%= image_tag photo.photo_url.to_s %>
+      </div>
 
-  <div class="step" id="pic_7" data-x="18000" data-z="4000" data-rotate="0" data-scale="0"><%= image_tag "lands_end_7.jpg" %></div>
+      <div id="<%= line_id %>">
+      </div>
 
-  <div class="step" id="pic_8" data-x="21000" data-z="3000" data-rotate="0" data-scale="0"><%= image_tag "lands_end_8.jpg" %></div>
 
+      <div id="owners_photo">
+        <%= image_tag photo.user.photo_url(:event_presentation_thumb).to_s, :class => "photo" %>
+      </div>
+
+    </div>
+
+ <% end %>
 
 </div>
+
+<footer id="footer">
+ <%= link_to @event.activity.title, event_path(@event) %>
+</footer>
+

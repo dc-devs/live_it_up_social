@@ -10,12 +10,15 @@ class UserPhotoUploader < CarrierWave::Uploader::Base
     else
       "uploads/development/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end
-  end  
+  end
 
   def default_url
      ActionController::Base.helpers.asset_path("fallback/" + [version_name, "abe-lincoln.jpg"].compact.join('_'))
   end
 
+  version :event_presentation_thumb do
+    process :resize_to_fill => [120, 120]
+  end
   version :logged_in_thumb do
     process :resize_to_fill => [30, 30]
   end
@@ -23,6 +26,7 @@ class UserPhotoUploader < CarrierWave::Uploader::Base
   version :profile_settings_thumb do
     process :resize_to_fill => [77, 77]
   end
+
 
   def extension_white_list
     %w(jpg jpeg gif png)
