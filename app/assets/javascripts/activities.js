@@ -7,13 +7,15 @@ $(document).ready(function ($) {
   
   $('.activities-listItem').bind({
   mouseenter: function(e) {
-    console.log(e.delegateTarget.childNodes[3]);
+    console.log(e);
   // Hover event handler
    $(e.delegateTarget.childNodes[3]).addClass('move-arrow-up');
+   // $(".activities-voteUpButton").addClass('zero-opacity');
   },
   mouseleave: function(e) {
   // Hover event handler
   $(e.delegateTarget.childNodes[3]).removeClass('move-arrow-up');
+  // $(".activities-voteUpButton").addClass('zero-opacity');
   },
   click: function(e) {
   // Click event handler
@@ -25,9 +27,8 @@ $(document).ready(function ($) {
    $(e.delegateTarget).addClass('highlight-green');
   }
  });
- 
 
-  //$('.activities-listItem').hover( handlerIn, handlerOut )
+ //$('.activities-listItem').hover( handlerIn, handlerOut )
   
   function handlerIn(){
      console.log("Handle IN!");

@@ -126,27 +126,31 @@
     <ul class="list-unstyled">
   <% @activities.order(created_at: :desc).each do |activity| %>
        <%= link_to activity do %>
-        <li class="activities-listItem">
-          <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
-          <%= activity.title %>
-          <div id="activities-ArrowUp" class="">
-           <div class="glyphicon glyphicon-chevron-up"></div>
-          </div>
-        </li>
-      
-      
-        
       <% end %>
+
+
       <%= form_for @vote do |f| %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :activity_id, :value => activity.id %>
         <%= f.button :class => "activities-voteUpButton" do %>
         <div class="activities-BackersWrapper text-center">
-        <span><%= activity.votes.count %></span><br/>
+          <li class="activities-listItem">
+              <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
+              <%= activity.title %>
+              <div id="activities-ArrowUp" class="">
+               <div class="glyphicon glyphicon-chevron-up"></div>
+              </div>
+          </li>
+         <span>
+           <%= activity.votes.count %>
+         </span><br/>
         </div>
         <% end %>
-      <% end %>
-    <%end%>
+      <% end %> <!-- END FORM -->
+      
+
+
+    <%end%><!-- END ACTIVITIES EACH DO -->
   </ul>
   </div>
   <div class="tab-pane fade" id="trending">
