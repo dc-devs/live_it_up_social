@@ -36,13 +36,17 @@
           </a>
         </li>
         <li>
-          <%= link_to "Accept Invite", {
-           controller: "trips",
-           action:     "create",
-           event_id:   @event.id
-          }, method: :post,
-         :class => "btn-old btn-green events-btn-tabs-accept"
-          %>
+          <% if @event.users.include?(current_user) %>
+            <div class="events-acceptedInvite"> Accepted </div>
+          <% else %>
+            <%= link_to "Accept Invite", {
+             controller: "trips",
+             action:     "create",
+             event_id:   @event.id
+             }, method: :post,
+             :class => "btn-old btn-green events-btn-tabs-accept"
+            %>
+          <% end %>
         </li>
 
       </ul>
