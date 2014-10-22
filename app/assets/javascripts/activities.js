@@ -9,36 +9,29 @@ $(document).ready(function ($) {
   mouseenter: function(e) {
     console.log(e);
   // Hover event handler
-   $(e.delegateTarget.childNodes[3]).addClass('move-arrow-up');
-   // $(".activities-voteUpButton").addClass('zero-opacity');
+   $(e.delegateTarget.children[0].children[1]).addClass('enter-arrowUp');
+   $(e.delegateTarget.children[0].children[2]).addClass('zero-opacity');
   },
   mouseleave: function(e) {
   // Hover event handler
-  $(e.delegateTarget.childNodes[3]).removeClass('move-arrow-up');
-  // $(".activities-voteUpButton").addClass('zero-opacity');
+  $(e.delegateTarget.children[0].children[1]).removeClass('enter-arrowUp');
+  $(e.delegateTarget.children[0].children[2]).removeClass('zero-opacity');
   },
-  click: function(e) {
+  mousedown: function(e) {
   // Click event handler
    console.log(e.delegateTarget)
    $(e.delegateTarget).addClass('highlight-green');
+   $(e.delegateTarget.children[0].children[1]).removeClass('enter-arrowUp');
+   $(e.delegateTarget.children[0].children[2]).removeClass('zero-opacity');
+
   },
-  blur: function(e) {
-  // Blur event handler
-   $(e.delegateTarget).addClass('highlight-green');
+  mouseup: function(e) {
+  // Click event handler
+   console.log(e.delegateTarget)
+   $(e.delegateTarget).removeClass('highlight-green');
   }
+  
  });
 
- //$('.activities-listItem').hover( handlerIn, handlerOut )
-  
-  function handlerIn(){
-     console.log("Handle IN!");
-    
-  }
-
-  function handlerOut(){
-    console.log("Handle Out!");
-
-    
-  }
 
 });
