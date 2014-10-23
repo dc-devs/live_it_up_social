@@ -25,6 +25,10 @@ class ActivityPhotoUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [25, 25]
   end
 
+  version :profile do 
+    process :resize_to_fill => [695,255]
+  end
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end

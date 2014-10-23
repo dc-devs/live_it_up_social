@@ -115,7 +115,7 @@
 
 <div class="event-Wrapper">
   <div class="center">
-    <%= image_tag @event.activity.photo_url.to_s, :style => "border-radius:5px; width: 100%; height:250px;"%>
+    <%= image_tag @event.activity.photo_url(:profile).to_s, :style => "border-radius:5px; width: 100%; height:250px;"%>
   </div>
 </div><!-- end event-Wrapper -->
 
@@ -145,7 +145,37 @@
         <p class="event-Content">
           <%= @event.activity.necessities %>
         </p>
-
+      </li>
+      <li>
+        <p class="event-Label">
+          Date:
+        </p>
+        <p class="event-Content">
+          <%= @event.date %>
+        </p>
+      </li>
+      <li>
+        <p class="event-Label">
+          Time:
+        </p>
+        <p class="event-Content">
+          <%= @event.start_time %>
+        </p>
+       <li>
+        <p class="event-Label">
+          Duration:
+        </p>
+        <p class="event-Content">
+          <%= @event.duration %>
+        </p>
+      </li>
+      <li>
+        <p class="event-Label">
+          Location:
+        </p>
+        <p class="event-Content">
+          <%= @event.activity.location %>
+        </p>
       </li>
       <li>
         <p class="event-Label">
@@ -156,20 +186,8 @@
             <%= f.file_field :photo_url %>
             <%= f.hidden_field :event_id, value: @event.id %>
             <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.submit 'Submit Photo' %>
+            <%= f.submit 'Upload Photo!', :class => "events-photoUpload btn-old btn-green" %>
           <% end %>
-        </p>
-
-
-      </li>
-
-
-      <li>
-        <p class="event-Label">
-          Location:
-        </p>
-        <p class="event-Content">
-          <%= @event.activity.location %>
         </p>
       </li>
     </ul>

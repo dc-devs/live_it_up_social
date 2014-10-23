@@ -104,7 +104,7 @@
 <div class="event-Wrapper">
   <div class="center">
     <!-- Add stock activity photo -->
-    <%= image_tag @activity.photo_url.to_s, :style => "border-radius:5px; width: 100%; height:250px;" %>
+    <%= image_tag @activity.photo_url(:profile).to_s, :style => "border-radius:5px; width: 100%; height:250px;" %>
   </div>
 </div><!-- end event-Wrapper -->
 
