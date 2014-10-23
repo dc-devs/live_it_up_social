@@ -179,7 +179,7 @@
 <div class="event-Wrapper">
   <div class="center">
     <!--google Map -->
-   <script src="https://maps.googleapis.com/maps/api/js"></script>
+   <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFV3xWimhcZMCsIXOLZbB6fVmAQfkelFM"></script>
     <script>
       var geocoder;
       var map;
@@ -200,9 +200,11 @@
           if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
             console.log(results[0].geometry.location);
+            var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
             var marker = new google.maps.Marker({
                 map: map,
-                position: results[0].geometry.location
+                position: results[0].geometry.location,
+                icon: iconBase + 'info-i_maps.png'
             });
           }
         });
