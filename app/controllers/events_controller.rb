@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    render layout: 'profile_layout'
   end
 
   def new
