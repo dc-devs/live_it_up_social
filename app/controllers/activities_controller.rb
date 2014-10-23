@@ -33,8 +33,9 @@ class ActivitiesController < ApplicationController
     @activity   = Activity.new(activity_params)
     if @activity.save
       @sorted_by_vote = Activity.sort_acrtivities(@activities)
+      week = ((Time.now-604800)..Time.now)
       today = (Time.now.midnight..Time.now)
-      @trending_activities = Activity.where(created_at: today)
+      @trending_activities = Activity.where(created_at: week)
       @recent_activities = Activity.where(created_at: today)
       @trending_activities = Activity.sort_acrtivities(@trending_activities)
       render :index
