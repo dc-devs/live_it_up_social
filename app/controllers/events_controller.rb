@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   def index
     @photo = Photo.new
     @events = Event.all
+    render layout: 'profile_layout'
   end
 
   def new
