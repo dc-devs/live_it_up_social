@@ -1,7 +1,7 @@
 .activity_view_bckgrd{
   padding-top: 50px;
   margin: 0;
-  background-image: image-url('gg_bridge.jpg') 0px 0px no-repeat;
+  background-image: image-url("gg_bridge.jpg");
   width: 100%;
   height: 300px;
   background-size:cover;
@@ -13,7 +13,7 @@
   margin-top: 50px;
   margin-left: 50px;
   border: 3px white solid;
-  background-image: url('prof-pic.jpeg') 0px 0px no-repeat;
+  background-image: image-url("prof-pic.jpeg");
   display: inline-block;
   background-size: cover;
   background-repeat: no-repeat;
