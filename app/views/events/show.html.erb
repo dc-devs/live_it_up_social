@@ -2,7 +2,7 @@
 <div class="activities-userProfileFixedWrapper">
 <div class="activities-userProfileWrapper">
   <div class="activities-userProfilePhoto" >
-    <%= link_to image_tag("prof-pic.jpeg", :class => "activities-userProfileImg"), activities_path   %>
+    <%= link_to image_tag(current_user.photo_url(:profile_settings_thumb).to_s, :class => "activities-userProfileImg"), user_path(current_user) %>
     <div class="activities-userProfileAttsWrapper">
 
     <div class="activities-userProfileAtts">

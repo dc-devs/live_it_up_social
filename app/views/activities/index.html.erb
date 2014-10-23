@@ -43,7 +43,7 @@
      <!-- Tab panes -->
       <div class="tab-content activities-tab-content">
 
-        <div class="tab-pane fade in active" id="home">
+        <div class="tab-pane fade" id="home">
           <% activities = @activities.where(user_id: current_user.id) %>
           <ul class="list-unstyled activities-miniList">
             <div id="scroll-myActivities" class="wrapper">
@@ -91,7 +91,7 @@
 </div>
 </div><!-- end activities-userProfileFixedWrapper -->
 
-<div class="activities-listWrapper"> 
+<div class="activities-listWrapper active"> 
 
   <div class="row activities-activitiesListHeader">
     <h1 id='activity-heading'>
@@ -103,7 +103,7 @@
     </div>
   </div>
   <!-- Nav tabs --> 
-  <ul class="nav nav-tabs activities-queryHeader" role="tablist">
+  <ul class="nav nav-tabs activities-queryHeader" role="tablist" id="votes-tabs">
     <li class>
       <a class="activities-queryItem" href="#recently" role="tab" data-toggle="tab">
         Recently Added
@@ -123,7 +123,7 @@
 <div class="tab-content">
 
 <!--  Recent Activities tab -->
-  <div class="tab-pane fade in active" id="recently">
+  <div class="tab-pane fade" id="recently">
     <ul class="list-unstyled">
       <% @activities.order(created_at: :desc).each do |activity| %>
         <!-- Form For ajax Vote -->
@@ -189,7 +189,7 @@
 <!-- END Trending Activities tab -->
 
 <!--  Leaderboard Activities tab -->
-<div class="tab-pane fade" id="votes">       
+<div class="tab-pane fade in active" id="votes">       
   <ul class="list-unstyled">
      <% @sorted_by_vote.each do |activity| %>
 
@@ -201,7 +201,7 @@
            <li>
              <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
              <div id="activities-ArrowUp" class="">
-               <div class="glyphicon glyphicon-chevron-up"></div>
+                <%= image_tag "arrow.png" %>
              </div>
              <div class="activities-votesWrapper text-center">
               <span>

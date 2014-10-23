@@ -5,14 +5,13 @@ class EventsController < ApplicationController
   end
 
   def new
-
     @event = Event.new
-
   end
 
   def show
     @event = Event.find(params[:id])
     @users = User.all
+    @photo = Photo.new
     @trips = Trip.where(event_id: @event.id)
   end
 
