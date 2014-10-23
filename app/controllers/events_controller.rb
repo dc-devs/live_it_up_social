@@ -19,6 +19,13 @@ class EventsController < ApplicationController
     render :pictures
   end
 
+  def presentation
+    @activities = Activity.all
+    @event      = Event.find(params[:id])
+    @photos     = Photo.all.includes(:user)
+    render :presentation
+  end
+
   def show
     @photo = Photo.new
     @event = Event.find(params[:id])

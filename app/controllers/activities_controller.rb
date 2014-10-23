@@ -38,7 +38,7 @@ class ActivitiesController < ApplicationController
       @trending_activities = Activity.where(created_at: week)
       @recent_activities = Activity.where(created_at: today)
       @trending_activities = Activity.sort_acrtivities(@trending_activities)
-      render :index
+      redirect_to activities_path
     else
       render :new
     end

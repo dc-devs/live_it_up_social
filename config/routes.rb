@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   get '/search',                  to: 'activities#search'
   get '/auth/:provider/callback', to: 'authentications#create'
+  get '/events/:id/presentation', to: 'events#presentation'
 end
