@@ -1,10 +1,10 @@
 $( document ).ready(function(){
 
-  var background_images = ["cable_car.jpg", "pier.jpg", "main_background.jpg", "fort_mason.jpg","ocean_beach.jpg"]
+  var background_images = ["https://s3-us-west-1.amazonaws.com/liveitupsocial/uploads/production/home/cable_car.jpg", "https://s3-us-west-1.amazonaws.com/liveitupsocial/uploads/production/home/main_background.jpg"]
 
   if (document.getElementById("homepage_body")){
 
-    $("#homepage_body").css("background", "url(assets/"+background_images[[Math.floor(Math.random()*background_images.length)]]+") no-repeat").addClass("parallax");
+    $("#homepage_body").css("background", "url("+background_images[[Math.floor(Math.random()*background_images.length)]]+") no-repeat").addClass("parallax");
 
 //Trying to fix navbar to show on mouseover
 

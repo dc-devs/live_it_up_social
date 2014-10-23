@@ -16,9 +16,14 @@ class EventPhotoUploader < CarrierWave::Uploader::Base
      ActionController::Base.helpers.asset_path("fallback/rock-climbing.png")
   end
 
-  version :event_photo_full do
-    process :resize_to_fill => [1000, 1776]
+  version :event_photo_500 do
+    process :resize_to_fill => [500, 500]
   end
+
+  version :event_photo_300 do
+    process :resize_to_fill => [300, 300]
+  end
+
 
   def extension_white_list
     %w(jpg jpeg gif png)

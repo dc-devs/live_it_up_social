@@ -1,38 +1,68 @@
 
+
+   
+
 <div id="jmpress">
 
+  <div class="step" data-x="-800" data-y="20" data-rotate="0" data-z="" data-scale="0" style="height:500px;">
+  
+    <div class="start-pressy-line"></div>
+    <div class="start-pressy" >
+      <span>
+       Start!
+      </span>
+    </div>
+    <div class="pressy-date">
+      <%= @event.date %>
+    </div>
+    <div class="pressy-title">
+      <%= link_to @event.activity.title, event_path(@event) %>
+    </div>
+
+  </div>
+
+
   <% @photos.each_with_index do |photo, index| %>
-  <% index % 4 == 0 ? line_id = "line_1" : %>
-  <% index % 4 == 1 ? line_id = "line_2" : %>
-  <% index % 4 == 2 ? line_id = "line_3" : %>
-  <% index % 4 == 3 ? line_id = "line_4" : %>
+  <% index % 4 == 0 ? line_id = "1" : %>
+  <% index % 4 == 1 ? line_id = "2" : %>
+  <% index % 4 == 2 ? line_id = "3" : %>
+  <% index % 4 == 3 ? line_id = "4" : %>
 
-  <% index % 2 == 0 ? vertical_align = 150 : vertical_align = -150 %>
+  <% index % 2 == 0 ? vertical_align = 35 : vertical_align = -35 %>
 
-  <% index % 4 == 0  ? vertical_jump = 1000 : vertical_jump = 0 %>
-
-
-    <div class="step" id="pic_<%=index%>" data-x="<%= index * 1200 %>" data-y="<%= vertical_align + vertical_jump %>" data-rotate="0" data-z="0" data-scale="0">
-
-      <div id="photo_wrapper">
-      <%= image_tag photo.photo_url.to_s %>
-      </div>
-
-      <div id="<%= line_id %>">
-      </div>
+  <% index % 4 == 0  ? vertical_jump = 35 : vertical_jump = -35 %>
 
 
-      <div id="owners_photo">
-        <%= image_tag photo.user.photo_url(:event_presentation_thumb).to_s, :class => "photo" %>
+    
+    <div class="step" id="pic_<%=index%>" data-x="<%= index * 1000 %>" data-y="<%= vertical_align + vertical_jump %>" data-rotate="0" data-z="0" data-scale="0" style="height:500px;">
+   
+    <div class="photo_wrapper">
+    <%= image_tag photo.photo_url_url(:event_photo_500).to_s %>
+    </div>
+
+    <div class="curve<%= line_id %> target">
+    </div>
+
+      <div class="owners_photo">
+        <%= image_tag photo.user.photo_url(:event_presentation_thumb).to_s %>
       </div>
 
     </div>
 
+   <% if index + 1 == @photos.length %>
+     <div class="step" data-x="<%= index * 1000 %>" data-y="0" data-rotate="0" data-z="" data-scale="0" style="height:500px;">
+
+      <div class="end-pressy-line"></div>
+        <div class="end-pressy" >
+          <span>
+           End!
+          </span>
+        </div>
+     </div>
+  <% end %> 
+
  <% end %>
 
-</div>
 
-<footer id="footer">
- <%= link_to @event.activity.title, event_path(@event) %>
-</footer>
+</div>
 

@@ -7,6 +7,7 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
     @activity   = Activity.new
     @vote       = Vote.new
+    # @search_activities = true
 
     @sorted_by_vote = Activity.sort_acrtivities(@activities)
       today = (Time.now.midnight..Time.now)

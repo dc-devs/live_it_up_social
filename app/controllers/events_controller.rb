@@ -23,6 +23,7 @@ class EventsController < ApplicationController
     @photo = Photo.new
     @event = Event.find(params[:id])
     @users = User.all
+    @photo = Photo.new
     @trips = Trip.where(event_id: @event.id)
   end
 

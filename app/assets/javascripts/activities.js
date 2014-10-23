@@ -4,7 +4,7 @@ $(document).ready(function ($) {
   $('#scroll-eventDeclines').perfectScrollbar();
   $('#scroll-eventInvited').perfectScrollbar();
   $('#scroll-eventAccepted').perfectScrollbar();
-  
+
   $('.activities-listItem').bind({
   mouseenter: function(e) {
     console.log(e);
@@ -33,5 +33,6 @@ $(document).ready(function ($) {
   
  });
 
+// $('#votes-tabs a:last').tab('show')
 
 });

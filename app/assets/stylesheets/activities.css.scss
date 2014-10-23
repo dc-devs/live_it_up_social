@@ -26,7 +26,8 @@
   display: inline-block;
   width:300px;
   height:600px;
-  background: url('gg-bridge.jpg') no-repeat;
+  background-image: image-url("gg-bridge.jpg");
+  background-repeat: no-repeat;  
   @include border-radius(5px);
   & .activities-userProfileImg{
   position: relative;
@@ -225,7 +226,10 @@ background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.01) 100%)
   left: 47%;
 }
 #activities-search-input{
-  border-radius: 5px;
+  border-radius: 50px !important;
+  font-weight: 200;
+  letter-spacing: .5px;
+  width: 180px;
 }
 
 #activity-heading{
