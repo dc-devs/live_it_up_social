@@ -36,12 +36,15 @@
       </div>
       <div class="collapse navbar-collapse">
 
-        <!-- <form id="activities-search", action='/search'>
-          <label >
-            <!-- <i class="fa fa-search"> </i>
+
+      <% if @search_activities == true %>
+        <form id="activities-search", action='/search'>
+          <label>
+              <class="fa fa-search"> </i>
             <input  id ='activities-search-input'type="text" name="query" class="form-control" placeholder="search activities">
           </label>
-        </form> -->
+        </form>
+      <% end %>
 
         <ul class="nav navbar-nav pull-right">
           <li >

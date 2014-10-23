@@ -222,11 +222,14 @@ background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.01) 100%)
 
 #activities-search{
   position: absolute;
-  top: 13px;
-  left: 485px;
+  top: 16%;
+  left: 47%;
 }
 #activities-search-input{
-  border-radius: 5px;
+  border-radius: 50px !important;
+  font-weight: 200;
+  letter-spacing: .5px;
+  width: 180px;
 }
 
 #activity-heading{
@@ -344,7 +347,7 @@ ul.ui-autocomplete{
   z-index: 10;
   color: #19a919 !important;
   font-size: 40px;
-  opacity: 0; 
+  opacity: 0;
   -webkit-transition: all .5s ease-out;
   transition: all .5s ease-out;
   z-index:10;
