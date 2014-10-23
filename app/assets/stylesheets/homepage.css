@@ -1,12 +1,35 @@
+.home-titleWrapper{
+  width: 900px;
+  margin: -10px auto 0px auto;
+  text-align: center;
+}
+
 .homepage_title{
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-shadow: 2px 2px 10px black;
+  text-shadow: 2px 2px 6px #484848;
   font-weight: bold;
   color:white;
   text-align: center;
-  font-size: 50px;
-  opacity: .8;
+  font-size: 53px;
+  opacity: .9;
 }
+
+.countdown-home{
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 2px 2px 6px #484848;
+  text-align: center;
+  line-height: 1;
+  padding: 0;
+  color: #fff;
+  opacity: .9;
+  letter-spacing: -5px;
+  font-size: 150px;
+}
+
+.homepage_text{
+  font-size: 38px !important;
+}
+
 .fa-color {
   color: #19a919;
 }
@@ -14,28 +37,6 @@
   font-weight: 200;
 }
 
-.homepage_text{
-  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  text-shadow: 2px 2px 10px black;
-  text-align: center;
-  color:white;
-  font-size: 30px;
-  opacity: .8;
-}
-
-.countdown-home{
-  margin-top: 18%;
-  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-shadow: 2px 2px 10px black;
-  text-align: center;
-  line-height: 1;
-  padding: 0;
-  color: #fff;
-  opacity: .8;
-  letter-spacing: -5px;
-  font-size: 140px;
-}
 #homepage_body {
   background-attachment: fixed;
   background-size: cover;

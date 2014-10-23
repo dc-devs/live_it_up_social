@@ -1,9 +1,16 @@
 .pic-title h1{
-  color: #19a919;
-  font-size: 25px;
-  font-weight: 200;
+  border-bottom: 1px solid #181818;
+  width: 505px;
+  margin: 0px auto 29px auto;
+  padding: 0 0 10px 0;
+  color: #181818;
+  font-size: 33px;
+  letter-spacing: 3px;
+  font-weight: 900;
   text-align: center;
+  font-family: 'Shadows Into Light', cursive;
 }
+
 div.wrap {
   margin: 5%;
   background: #eee;
@@ -52,8 +59,6 @@ div.wrap p, div.wrap2 p, div.wrap3 p {
   font-family: 'Shadows Into Light', cursive;
 }
 
-
-
 a.polaroid {
   background: center center no-repeat;
   background-size: cover;
@@ -67,6 +72,7 @@ a.polaroid {
 a.polaroid img {
   height: 200px;
   width: 200px;
+
 }
 
 

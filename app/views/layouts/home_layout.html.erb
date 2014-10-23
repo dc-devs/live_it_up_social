@@ -37,7 +37,7 @@
         <ul class="nav navbar-nav pull-right">
           <li >
             <a href="#">
-              Past Events
+                Past Events
             </a>
           </li>
           <li>
@@ -77,9 +77,12 @@
   <div class="container main-container">
     <div id="main_background">
 
-      <div id="countdown" class="countdown-home"></div>
-      <h3 class="homepage_title">Hold your horses party animal</h3>
-      <h3 class="homepage_text">Are you ready for the weekend?</h3>
+      <div class="home-titleWrapper">
+        <h3 class="homepage_title">Time until our next event: </h3>
+        <div id="countdown" class="countdown-home"></div>
+        <h3 class="homepage_title homepage_text">What are you doing this weekend?</h3>
+      </div>
+
     </div>
   <%= yield %>
   </div><!-- /.container -->
@@ -117,7 +120,7 @@
   <br>
   <div class="container">
     <div class="pic-title">
-      <h1>Past Events</h1>
+      <h1>Check out our past events!</h1>
     </div>
     <div id="pic-polaroid-container">
     <div class="wrap">
