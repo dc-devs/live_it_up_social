@@ -1,67 +1,13 @@
-#line_1{
-  -ms-transform: rotate(-60deg);
-  -webkit-transform: rotate(-60deg);
-  transform: rotate(-60deg);
-  margin-left: -500px;
-  margin-top: -500px;
-  display: inline;
-  position: absolute;
-  border-bottom: 4px solid black;
-  height: 282px;
-  width: 1300px;
-  background-color: rgba(0,0,0,0);
-}
-
-#line_2{
-
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  margin-left: 0px;
-  margin-top: 250px;
-  display: inline;
-  position: absolute;
-  border-bottom: 4px solid black;
-  height: 282px;
-  width: 600px;
-  background-color: rgba(0,0,0,0);
-}
-
-#line_3{
-
-  -ms-transform: rotate(-40deg);
-  -webkit-transform: rotate(-40deg);
-  transform: rotate(-40deg);
-  margin-left: -250px;
-  margin-top: -150px;
-  display: inline;
-  position: absolute;
-  border-bottom: 4px solid black;
-  height: 282px;
-  width: 600px;
-  background-color: rgba(0,0,0,0);
-}
-
-#line_4{
-  -ms-transform: rotate(60deg);
-  -webkit-transform: rotate(60deg);
-  transform: rotate(60deg);
-  margin-left: -600px;
-  margin-top: 700px;
-  display: inline;
-  position: absolute;
-  border-bottom: 4px solid black;
-  height: 282px;
-  width: 1300px;
-  background-color: rgba(0,0,0,0);
-}
-
 .photo_wrapper{
   z-index: 1;
   position: relative;
   float:left;
+  -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  border-radius: 2px;
  & img {
-  border-radius: 25px;
+  padding: 4px;
+  border-radius: 2px;
  }
 }
 
@@ -92,12 +38,13 @@
   height: 70px;
   width: 70px;
   border-radius: 50%;
+  border: 2px solid #ddd;
   background-color: #282828;
   color: white;
   & span {
     position: absolute;
-    top: 21px;
-    left: 14px;
+    top: 20px;
+    left: 11px;
     text-decoration: none;
     outline: 0;
     border: 0;
@@ -110,7 +57,7 @@
   position: absolute;
   top: 200px;
   left: 400px;
-  border-top: 2px solid #181818;
+  border-top: 2px solid #ddd;
   width: 200px;
   z-index: -1;
 }
@@ -123,11 +70,12 @@
   width: 70px;
   border-radius: 50%;
   background-color: #282828;
+  border: 2px solid #ddd;
   color: white;
   & span {
-    position: absolute;
+  position: absolute;
   top: 21px;
-  left: 17px;
+  left: 15px;
   text-decoration: none;
   outline: 0;
   border: 0;
@@ -140,7 +88,7 @@
   position: absolute;
   top: 200px;
   left: 284px;
-  border-top: 2px solid #181818;
+  border-top: 2px solid #ddd;
   width: 200px;
   z-index: -1;
 }
@@ -152,7 +100,7 @@
   left: 689px;
   width: 176px !important;
   height: 800px !important;
-  border-left: 3px solid #181818;
+  border-left: 3px solid #ddd;
   border-radius: 50% !important;
   -ms-transform: rotate(-111deg);
   -webkit-transform: rotate(-111deg);
@@ -166,7 +114,7 @@
   left: 689px;
   width: 176px !important;
   height: 800px !important;
-  border-left: 3px solid #181818;
+  border-left: 3px solid #ddd;
   border-radius: 50% !important;
   -ms-transform: rotate(69deg);
   -webkit-transform: rotate(69deg);
@@ -180,7 +128,7 @@
   left: 634px;
   width: 176px !important;
   height: 800px !important;
-  border-left: 3px solid #181818;
+  border-left: 3px solid #ddd;
   border-radius: 50% !important;
   -ms-transform: rotate(-111deg);
   -webkit-transform: rotate(-111deg);
@@ -194,7 +142,7 @@
   left: 689px;
   width: 176px !important;
   height: 800px !important;
-  border-left: 3px solid #181818;
+  border-left: 3px solid #ddd;
   border-radius: 50% !important;
   -ms-transform: rotate(69deg);
   -webkit-transform: rotate(69deg);
