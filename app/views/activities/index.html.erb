@@ -167,7 +167,7 @@
           <li>
             <%= image_tag activity.photo_url(:activity_list_thumb).to_s, :class=> "activities-listPhoto" %>
             <div id="activities-ArrowUp" class="">
-              <div class="glyphicon glyphicon-chevron-up"></div>
+              <%= image_tag "arrow.png" %>
             </div>
             <div class="activities-votesWrapper text-center">
              <span>
@@ -210,7 +210,7 @@
               <br/>
              </div>
            </li>
-         <% end %><!-- END Button-->
+         <% end %> <!-- END Button-->
        <% end %> <!-- END Form -->
        <!-- Activity Title -->
        <%= link_to activity, :class => "activites-activityTitle" do %>

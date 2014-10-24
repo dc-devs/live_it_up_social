@@ -1,4 +1,3 @@
 $( document ).ready(function() {
-
-  $('#jmpress').jmpress();
+   $('#jmpress').jmpress();
 });
